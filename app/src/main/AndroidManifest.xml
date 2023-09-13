@@ -12,9 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.IICPShuttle"
         tools:targetApi="31">
+
         <activity
-            android:name=".MainActivity"
+            android:name=".RegisterActivity"
             android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#DC0D15">
+
+
+    <View
+        android:id="@+id/whiteBackground"
+        android:layout_width="412dp"
+        android:layout_height="752dp"
+        android:background="@drawable/rounded_corner"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.5"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        tools:ignore="VisualLintBounds" />
+
+
+    <ImageView
+        android:id="@+id/backgroundImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.1"
+        android:src="@drawable/inti_logo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter_black"
+        android:text="Register"
+        android:textColor="#FFFFFF"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toTopOf="@+id/whiteBackground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText,MissingConstraints,TextContrastCheck,VisualLintBounds" />
+
+    <!-- return icon image -->
+    <View
+        android:id="@+id/blackOverlay"
+        android:layout_width="364dp"
+        android:layout_height="498dp"
+        android:background="@drawable/login_rounded_background"
+        app:layout_constraintBottom_toBottomOf="@+id/whiteBackground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.498"
+        tools:ignore="MissingConstraints,VisualLintBounds" />
+
+    <ImageView
+        android:id="@+id/iconImageView"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:importantForAccessibility="no"
+        android:src="@drawable/return_icon"
+        app:layout_constraintBottom_toTopOf="@+id/whiteBackground"
+        app:layout_constraintEnd_toStartOf="@+id/textView1"
+        app:layout_constraintHorizontal_bias="0.161"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.504"
+        tools:ignore="VisualLintBounds" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="233dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="104dp"
+        android:fontFamily="@font/inter_medium"
+        android:text="Student ID:"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/blackOverlay"
+        app:layout_constraintTop_toTopOf="@+id/blackOverlay"
+        tools:ignore="HardcodedText,TextSizeCheck,VisualLintOverlap" />
+
+    <EditText
+        android:id="@+id/idEditText"
+        android:layout_width="323dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
+        android:autofillHints=""
+        android:background="@drawable/edit_text_background"
+        android:hint="Enter Student ID"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:padding="10dp"
+        android:textColor="#000000"
+        android:textColorHint="#78909C"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/blackOverlay"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        tools:ignore="HardcodedText,TextFields,TextSizeCheck,TextContrastCheck,DuplicateClickableBoundsCheck,VisualLintOverlap" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="233dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="116dp"
+        android:layout_marginEnd="104dp"
+        android:fontFamily="@font/inter_medium"
+        android:text="Name:"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/blackOverlay"
+        app:layout_constraintTop_toTopOf="@+id/blackOverlay"
+        tools:ignore="HardcodedText,TextSizeCheck" />
+
+    <EditText
+        android:id="@+id/idEditText2"
+        android:layout_width="323dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
+        android:autofillHints=""
+        android:background="@drawable/edit_text_background"
+        android:hint="Enter Your Name"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:padding="10dp"
+        android:textColor="#000000"
+        android:textColorHint="#78909C"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/blackOverlay"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        tools:ignore="HardcodedText,TextFields,TextSizeCheck,TextContrastCheck" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="233dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="208dp"
+        android:layout_marginEnd="104dp"
+        android:fontFamily="@font/inter_medium"
+        android:text="Hostel:"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/blackOverlay"
+        app:layout_constraintTop_toTopOf="@+id/blackOverlay"
+        tools:ignore="HardcodedText,TextSizeCheck" />
+
+    <EditText
+        android:id="@+id/idEditText3"
+        android:layout_width="323dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
+        android:autofillHints=""
+        android:background="@drawable/edit_text_background"
+        android:hint="Enter Hostel Name"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:padding="10dp"
+        android:textColor="#000000"
+        android:textColorHint="#78909C"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/blackOverlay"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        tools:ignore="HardcodedText,TextFields,TextSizeCheck,TextContrastCheck" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="233dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="304dp"
+        android:layout_marginEnd="104dp"
+        android:fontFamily="@font/inter_medium"
+        android:text="Phone(01xxxxxxxx):"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/blackOverlay"
+        app:layout_constraintTop_toTopOf="@+id/blackOverlay"
+        tools:ignore="HardcodedText,TextSizeCheck" />
+
+    <EditText
+        android:id="@+id/idEditText4"
+        android:layout_width="323dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
+        android:autofillHints=""
+        android:background="@drawable/edit_text_background"
+        android:hint="Enter Your Phone Number"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:padding="10dp"
+        android:textColor="#000000"
+        android:textColorHint="#78909C"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/blackOverlay"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        tools:ignore="HardcodedText,TextFields,TextSizeCheck,TextContrastCheck" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="28dp"
+        android:background="@drawable/login_button_background"
+        android:text="Enter"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/blackOverlay"
+        app:layout_constraintEnd_toEndOf="@+id/blackOverlay"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="@+id/blackOverlay"
+        tools:ignore="HardcodedText,TextContrastCheck" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
