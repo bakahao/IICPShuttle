@@ -11,7 +11,10 @@
         android:id="@+id/iconImageView"
         android:layout_width="30dp"
         android:layout_height="30dp"
+        android:clickable="true"
+        android:focusable="true"
         android:importantForAccessibility="no"
+        android:onClick="onIconClick"
         android:src="@drawable/return_icon"
         app:layout_constraintBottom_toTopOf="@+id/whiteBackground"
         app:layout_constraintEnd_toStartOf="@+id/textView1"
@@ -19,10 +22,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.504"
-        tools:ignore="MissingConstraints,VisualLintBounds"
-        android:clickable="true"
-        android:focusable="true"
-        android:onClick="onIconClick" />
+        tools:ignore="MissingConstraints,VisualLintBounds,TouchTargetSizeCheck" />
 
 
     <View

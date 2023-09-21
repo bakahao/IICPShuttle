@@ -35,17 +35,27 @@ public class LoginActivity extends Activity {
             String enteredPassword = passwordEditText.getText().toString().trim();
 
             if (enteredID.isEmpty() || enteredPassword.isEmpty()) {
+                //Display error message
                 Toast.makeText(LoginActivity.this, "Please enter Student ID and Password", Toast.LENGTH_SHORT).show();
-            }else {
-                // 在这里进行与数据库的比对逻辑
-                boolean isValid = databaseHelper.checkCredentials(enteredID, enteredPassword);
-
-                if (isValid) {
-                    // 用户验证成功，跳转到activity_home.xml页面
-                    Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+            } else {
+                if (enteredID.equals("admin") && enteredPassword.equals("admin")) {
+                    Intent intent = new Intent(LoginActivity.this, AdminHomePageActivity.class);
                     startActivity(intent);
-                } else {
-                    Toast.makeText(LoginActivity.this, "Invalid Student ID or Password", Toast.LENGTH_SHORT).show();
+                }else if(enteredID.equals("driver") && enteredPassword.equals("driver")){
+                    Intent intent = new Intent(LoginActivity.this, DriverHomePageActivity.class);
+                    startActivity(intent);
+                }else {
+                    // Check the input exist in database or not
+                    boolean isValid = databaseHelper.checkCredentials(enteredID, enteredPassword);
+
+                    if (isValid) {
+                        // If exist，turn to activity_home.xml page
+                        Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                        startActivity(intent);
+                    } else {
+                        // If no, display invalid message
+                        Toast.makeText(LoginActivity.this, "Invalid Student ID or Password", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });
