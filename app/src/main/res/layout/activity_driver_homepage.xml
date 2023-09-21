@@ -48,5 +48,65 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="HardcodedText,MissingConstraints,TextContrastCheck,VisualLintBounds" />
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button1"
+        android:layout_width="371dp"
+        android:layout_height="61dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/rounded_home_button_background"
+        android:fontFamily="@font/inter_medium"
+        android:gravity="start|center_vertical"
+        android:paddingStart="50dp"
+        android:text="Attendance (Hostel)"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/whiteBackground"
+        app:layout_constraintVertical_bias="0.692"
+        tools:ignore="DuplicateSpeakableTextCheck,HardcodedText,MissingConstraints,RtlSymmetry,VisualLintButtonSize" />
+
+    <ImageView
+        android:id="@+id/iconImageView"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/event"
+        app:layout_constraintBottom_toBottomOf="@+id/button1"
+        app:layout_constraintEnd_toEndOf="@+id/button1"
+        app:layout_constraintHorizontal_bias="0.032"
+        app:layout_constraintStart_toStartOf="@+id/button1"
+        app:layout_constraintTop_toTopOf="@+id/button1"
+        app:layout_constraintVertical_bias="0.548"
+        android:contentDescription="TODO"
+        tools:ignore="ContentDescription,HardcodedText" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button2"
+        android:layout_width="371dp"
+        android:layout_height="61dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="552dp"
+        android:background="@drawable/rounded_home_button_background"
+        android:fontFamily="@font/inter_medium"
+        android:gravity="start|center_vertical"
+        android:paddingStart="50dp"
+        android:text="Attendance (Campus)"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="@+id/whiteBackground"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="DuplicateSpeakableTextCheck,HardcodedText,MissingConstraints,RtlSymmetry,VisualLintButtonSize" />
+
+    <ImageView
+        android:id="@+id/iconImageView2"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:contentDescription="TODO"
+        android:src="@drawable/event"
+        app:layout_constraintBottom_toBottomOf="@+id/button2"
+        app:layout_constraintEnd_toEndOf="@+id/button2"
+        app:layout_constraintHorizontal_bias="0.032"
+        app:layout_constraintStart_toStartOf="@+id/button2"
+        app:layout_constraintTop_toTopOf="@+id/button2"
+        app:layout_constraintVertical_bias="0.516"
+        tools:ignore="ContentDescription,HardcodedText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

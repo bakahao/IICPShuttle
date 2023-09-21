@@ -28,7 +28,7 @@
         android:src="@drawable/inti_logo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
@@ -85,15 +85,14 @@
         android:layout_width="371dp"
         android:layout_height="61dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="432dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/rounded_home_button_background"
         android:fontFamily="@font/inter_medium"
         android:gravity="start|center_vertical"
         android:paddingStart="50dp"
-
-        android:text="Book Shuttle(Hostel)"
+        android:text="Book Shuttle (Hostel)"
         android:textColor="#000000"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent"
         tools:ignore="DuplicateSpeakableTextCheck,HardcodedText,MissingConstraints,RtlSymmetry,VisualLintButtonSize" />
 
@@ -109,6 +108,125 @@
         app:layout_constraintTop_toTopOf="@+id/button1"
         app:layout_constraintVertical_bias="0.548"
         android:contentDescription="TODO"
+        tools:ignore="ContentDescription,HardcodedText" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button2"
+        android:layout_width="371dp"
+        android:layout_height="61dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/rounded_home_button_background"
+        android:fontFamily="@font/inter_medium"
+        android:gravity="start|center_vertical"
+        android:paddingStart="50dp"
+        android:text="Book Shuttle (Campus)"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="DuplicateSpeakableTextCheck,HardcodedText,MissingConstraints,RtlSymmetry,VisualLintButtonSize" />
+
+    <ImageView
+        android:id="@+id/iconImageView2"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:contentDescription="TODO"
+        android:src="@drawable/event"
+        app:layout_constraintBottom_toBottomOf="@+id/button2"
+        app:layout_constraintEnd_toEndOf="@+id/button1"
+        app:layout_constraintHorizontal_bias="0.032"
+        app:layout_constraintStart_toStartOf="@+id/button2"
+        app:layout_constraintTop_toTopOf="@+id/button2"
+        app:layout_constraintVertical_bias="0.516"
+        tools:ignore="ContentDescription,HardcodedText" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button3"
+        android:layout_width="371dp"
+        android:layout_height="61dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/rounded_home_button_background"
+        android:fontFamily="@font/inter_medium"
+        android:gravity="start|center_vertical"
+        android:paddingStart="50dp"
+        android:text="Scan Me"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/button4"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="DuplicateSpeakableTextCheck,HardcodedText,MissingConstraints,RtlSymmetry,VisualLintButtonSize" />
+
+    <ImageView
+        android:id="@+id/iconImageView3"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:contentDescription="TODO"
+        android:src="@drawable/scan"
+        app:layout_constraintBottom_toBottomOf="@+id/button3"
+        app:layout_constraintEnd_toEndOf="@+id/button3"
+        app:layout_constraintHorizontal_bias="0.02"
+        app:layout_constraintStart_toStartOf="@+id/button3"
+        app:layout_constraintTop_toTopOf="@+id/button3"
+        app:layout_constraintVertical_bias="0.58"
+        tools:ignore="ContentDescription,HardcodedText" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button4"
+        android:layout_width="371dp"
+        android:layout_height="61dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/rounded_home_button_background"
+        android:fontFamily="@font/inter_medium"
+        android:gravity="start|center_vertical"
+        android:paddingStart="50dp"
+        android:text="Request Shuttle"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/button5"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="DuplicateSpeakableTextCheck,HardcodedText,MissingConstraints,RtlSymmetry,VisualLintButtonSize" />
+
+    <ImageView
+        android:id="@+id/iconImageView4"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:contentDescription="TODO"
+        android:src="@drawable/shuttle"
+        app:layout_constraintBottom_toBottomOf="@+id/button4"
+        app:layout_constraintEnd_toEndOf="@+id/button4"
+        app:layout_constraintHorizontal_bias="0.02"
+        app:layout_constraintStart_toStartOf="@+id/button4"
+        app:layout_constraintTop_toTopOf="@+id/button4"
+        app:layout_constraintVertical_bias="0.483"
+        tools:ignore="ContentDescription,HardcodedText" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button5"
+        android:layout_width="371dp"
+        android:layout_height="61dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="96dp"
+        android:background="@drawable/rounded_home_button_background"
+        android:fontFamily="@font/inter_medium"
+        android:gravity="start|center_vertical"
+        android:paddingStart="50dp"
+        android:text="Contact Us"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="DuplicateSpeakableTextCheck,HardcodedText,MissingConstraints,RtlSymmetry,VisualLintButtonSize" />
+
+    <ImageView
+        android:id="@+id/contactIconImageView5"
+        android:layout_width="23dp"
+        android:layout_height="23dp"
+        android:contentDescription="TODO"
+        android:src="@drawable/contact"
+        app:layout_constraintBottom_toBottomOf="@+id/button5"
+        app:layout_constraintEnd_toEndOf="@+id/button5"
+        app:layout_constraintHorizontal_bias="0.031"
+        app:layout_constraintStart_toStartOf="@+id/button5"
+        app:layout_constraintTop_toTopOf="@+id/button5"
         tools:ignore="ContentDescription,HardcodedText" />
 
 
