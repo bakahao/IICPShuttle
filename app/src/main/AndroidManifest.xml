@@ -43,6 +43,11 @@
         <activity
             android:name=".ScanMeActivity"
             android:exported="true">
+      </activity>
+
+      <activity
+            android:name="BookShuttleActivity"
+            android:exported="true">
         </activity>
 
         <activity
