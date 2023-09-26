@@ -3,14 +3,14 @@ package com.example.iicpshuttle;
 public class User {
     private int id;
     private String name;
-    private String studentId;
+    private String email;
     private String password;
     private String phone;
 
-    public User(int id, String name, String studentId, String password, String phone) {
+    public User(int id, String name, String email, String password, String phone) {
         this.id = id;
         this.name = name;
-        this.studentId = studentId;
+        this.email = email;
         this.password = password;
         this.phone = phone;
     }
@@ -21,8 +21,8 @@ public class User {
 
     public String getName() {return name;}
 
-    public String getStudentId() {
-        return studentId;
+    public String getEmail() {
+        return email;
     }
 
     public String getPassword() {return password;}
