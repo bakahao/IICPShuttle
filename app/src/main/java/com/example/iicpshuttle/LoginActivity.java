@@ -7,16 +7,26 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class LoginActivity extends Activity {
 
-    private EditText idEditText, passwordEditText;
+    private EditText emailEditText, passwordEditText;
+    FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        mAuth = FirebaseAuth.getInstance();
 
-        idEditText = findViewById(R.id.idEditText);
+        emailEditText = findViewById(R.id.idEditText);
         passwordEditText = findViewById(R.id.idEditText2);
         Button loginButton = findViewById(R.id.button2);
 
@@ -31,33 +41,44 @@ public class LoginActivity extends Activity {
         });
 
         loginButton.setOnClickListener(v -> {
-            String enteredID = idEditText.getText().toString().trim();
+            String email = emailEditText.getText().toString().trim();
             String enteredPassword = passwordEditText.getText().toString().trim();
 
-            if (enteredID.isEmpty() || enteredPassword.isEmpty()) {
+            if (email.isEmpty() || enteredPassword.isEmpty()) {
                 //Display error message
                 Toast.makeText(LoginActivity.this, "Please enter Student ID and Password", Toast.LENGTH_SHORT).show();
             } else {
-                if (enteredID.equals("admin") && enteredPassword.equals("admin")) {
+                if (email.equals("admin") && enteredPassword.equals("admin")) {
                     Intent intent = new Intent(LoginActivity.this, AdminHomePageActivity.class);
                     startActivity(intent);
-                }else if(enteredID.equals("driver") && enteredPassword.equals("driver")){
+                }else if(email.equals("driver") && enteredPassword.equals("driver")){
                     Intent intent = new Intent(LoginActivity.this, DriverHomePageActivity.class);
                     startActivity(intent);
                 }else {
                     // Check the input exist in database or not
-                    boolean isValid = databaseHelper.checkCredentials(enteredID, enteredPassword);
+                    mAuth.signInWithEmailAndPassword(email, enteredPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()){
+                                Toast.makeText(LoginActivity.this, "User log in successfully", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+                            } else {
+                                Toast.makeText(LoginActivity.this, "Log in Failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
 
-                    if (isValid) {
-                        // If exist，turn to activity_home.xml page
-                        Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-                        startActivity(intent);
-                    } else {
-                        // If no, display invalid message
-                        Toast.makeText(LoginActivity.this, "Invalid Student ID or Password", Toast.LENGTH_SHORT).show();
-                    }
+                            }
+                        }
+                    });
                 }
             }
         });
+    }
+
+    @Override
+    protected void onStart(){
+        super.onStart();
+        FirebaseUser user = mAuth.getCurrentUser();
+        if (user != null){
+            startActivity(new Intent(this, HomeActivity.class));
+        }
     }
 }
