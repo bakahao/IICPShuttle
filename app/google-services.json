@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "336652920960",
+    "project_id": "iicpshuttle",
+    "storage_bucket": "iicpshuttle.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:336652920960:android:4d7c60aa168be727685e65",
+        "android_client_info": {
+          "package_name": "com.example.iicpshuttle"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYtV3Qkik8LAskTvLQA5V57tOk9T41jq0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
