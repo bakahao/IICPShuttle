@@ -61,7 +61,7 @@
         app:layout_constraintEnd_toStartOf="@+id/textView1_student"
         app:layout_constraintHorizontal_bias="0.257"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView1"
+        app:layout_constraintTop_toTopOf="@+id/textView1_student"
         tools:ignore="ContentDescription,HardcodedText,MissingConstraints" />
 
     <View
@@ -97,7 +97,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/whiteBackground" />
 
-
     <TextView
         android:id="@+id/showEmail"
         android:layout_width="69dp"
@@ -106,7 +105,8 @@
         android:layout_marginBottom="20dp"
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="@+id/view2"
-        app:layout_constraintStart_toEndOf="@+id/phoneIconImageView" />
+        app:layout_constraintStart_toEndOf="@+id/phoneIconImageView"
+        tools:ignore="HardcodedText,TextSizeCheck" />
 
     <ImageView
         android:id="@+id/phoneIconImageView"
@@ -129,6 +129,7 @@
         android:layout_marginBottom="20dp"
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="@+id/view"
-        app:layout_constraintStart_toEndOf="@+id/mailIconImageView" />
+        app:layout_constraintStart_toEndOf="@+id/mailIconImageView"
+        tools:ignore="HardcodedText,TextSizeCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
