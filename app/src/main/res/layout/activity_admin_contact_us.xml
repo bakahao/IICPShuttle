@@ -144,7 +144,4 @@
         app:layout_constraintStart_toStartOf="@+id/view"
         tools:ignore="ContentDescription,HardcodedText,MissingConstraints" />
 
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

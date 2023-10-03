@@ -31,11 +31,9 @@ public class AdminContactUsActivity extends AppCompatActivity {
         emailEditText.setText(sharedPreferences.getString("email", ""));
         phoneEditText.setText(sharedPreferences.getString("phone", ""));
 
-
         backIconImageView.setOnClickListener(v -> {
             Intent backIntent = new Intent(AdminContactUsActivity.this, AdminHomePageActivity.class);
             saveTextToSharedPreferences(sharedPreferences, emailEditText, phoneEditText);
-
             startActivity(backIntent);
         });
     }
