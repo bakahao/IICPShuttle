@@ -5,9 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class AdminContactUsActivity extends AppCompatActivity {
 
@@ -24,8 +24,8 @@ public class AdminContactUsActivity extends AppCompatActivity {
 
         sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
 
-        emailEditText = findViewById(R.id.emailEditText);
-        phoneEditText = findViewById(R.id.phoneEditText);
+        emailEditText = findViewById(R.id.emailEditText_contact);
+        phoneEditText = findViewById(R.id.phoneEditText_contact);
 
         // save previous text
         emailEditText.setText(sharedPreferences.getString("email", ""));
@@ -33,9 +33,10 @@ public class AdminContactUsActivity extends AppCompatActivity {
 
 
         backIconImageView.setOnClickListener(v -> {
-            Intent intent = new Intent(AdminContactUsActivity.this, AdminHomePageActivity.class);
+            Intent backIntent = new Intent(AdminContactUsActivity.this, AdminHomePageActivity.class);
             saveTextToSharedPreferences(sharedPreferences, emailEditText, phoneEditText);
-            startActivity(intent);
+
+            startActivity(backIntent);
         });
     }
 

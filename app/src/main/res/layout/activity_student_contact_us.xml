@@ -36,11 +36,11 @@
         tools:ignore="ContentDescription" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/textView1_student"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/inter_black"
-        android:text="Edit Contact"
+        android:text="Contact Us"
         android:textColor="#FFFFFF"
         android:textSize="36sp"
         app:layout_constraintBottom_toTopOf="@+id/whiteBackground"
@@ -53,12 +53,15 @@
         android:id="@+id/backIconImageView"
         android:layout_width="30dp"
         android:layout_height="30dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="8dp"
         android:contentDescription="TODO"
         android:src="@drawable/back"
-        android:layout_marginStart="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/whiteBackground"
+        app:layout_constraintEnd_toStartOf="@+id/textView1_student"
+        app:layout_constraintHorizontal_bias="0.257"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView1"
-        app:layout_constraintBottom_toBottomOf="@+id/textView1"
         tools:ignore="ContentDescription,HardcodedText,MissingConstraints" />
 
     <View
@@ -71,23 +74,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/whiteBackground" />
 
-    <EditText
-        android:id="@+id/emailEditText_contact"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="28dp"
-        android:layout_marginBottom="12dp"
-        android:autofillHints=""
-        android:hint="Enter Email"
-        android:inputType="text"
-        android:minHeight="48dp"
-        android:padding="10dp"
-        android:textColor="#000000"
-        android:textColorHint="#78909C"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/view"
-        app:layout_constraintEnd_toEndOf="@+id/view"
-        tools:ignore="HardcodedText,TextFields,TextSizeCheck,TextContrastCheck" />
 
     <ImageView
         android:id="@+id/mailIconImageView"
@@ -98,7 +84,6 @@
         android:contentDescription="TODO"
         android:src="@drawable/mail"
         app:layout_constraintBottom_toBottomOf="@+id/view"
-        app:layout_constraintEnd_toStartOf="@+id/emailEditText_contact"
         app:layout_constraintStart_toStartOf="@+id/view"
         tools:ignore="ContentDescription,HardcodedText,MissingConstraints" />
 
@@ -112,23 +97,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/whiteBackground" />
 
-    <EditText
-        android:id="@+id/phoneEditText_contact"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
-        android:layout_marginEnd="28dp"
-        android:autofillHints=""
-        android:hint="Enter Phone Number"
-        android:inputType="text"
-        android:minHeight="48dp"
-        android:padding="10dp"
-        android:textColor="#000000"
-        android:textColorHint="#78909C"
-        android:textSize="18sp"
+
+    <TextView
+        android:id="@+id/showEmail"
+        android:layout_width="69dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginBottom="20dp"
+        android:text="TextView"
         app:layout_constraintBottom_toBottomOf="@+id/view2"
-        app:layout_constraintEnd_toEndOf="@+id/view2"
-        tools:ignore="HardcodedText,TextFields,TextSizeCheck,TextContrastCheck" />
+        app:layout_constraintStart_toEndOf="@+id/phoneIconImageView" />
 
     <ImageView
         android:id="@+id/phoneIconImageView"
@@ -139,12 +117,18 @@
         android:contentDescription="TODO"
         android:src="@drawable/telephone"
         app:layout_constraintBottom_toBottomOf="@+id/view2"
-        app:layout_constraintEnd_toStartOf="@+id/phoneEditText_contact"
         app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="@+id/view"
         tools:ignore="ContentDescription,HardcodedText,MissingConstraints" />
 
-
-
+    <TextView
+        android:id="@+id/showPhone"
+        android:layout_width="69dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginBottom="20dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/view"
+        app:layout_constraintStart_toEndOf="@+id/mailIconImageView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
