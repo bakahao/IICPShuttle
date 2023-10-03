@@ -30,7 +30,6 @@
             android:exported="true">
         </activity>
 
-
         <activity
             android:name=".DriverHomePageActivity"
             android:exported="true">

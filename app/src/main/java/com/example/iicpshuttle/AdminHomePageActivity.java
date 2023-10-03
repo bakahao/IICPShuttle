@@ -32,6 +32,7 @@ public class AdminHomePageActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AdminHomePageActivity.this, AdminContactUsActivity.class);
+
                 startActivity(intent);
             }
         });
