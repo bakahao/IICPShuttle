@@ -113,6 +113,7 @@
         app:layout_constraintTop_toTopOf="@+id/whiteBackground" />
 
     <EditText
+
         android:id="@+id/phoneEditText_contact"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
@@ -140,6 +141,7 @@
         android:src="@drawable/telephone"
         app:layout_constraintBottom_toBottomOf="@+id/view2"
         app:layout_constraintEnd_toStartOf="@+id/phoneEditText_contact"
+        app:layout_constraintEnd_toStartOf="@+id/phoneEditText"
         app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="@+id/view"
         tools:ignore="ContentDescription,HardcodedText,MissingConstraints" />
