@@ -78,7 +78,7 @@ public class LoginActivity extends Activity {
     }
 
     private void checkRole(){
-        databaseReference = FirebaseDatabase.getInstance().getReference("Users");
+        databaseReference = FirebaseDatabase.getInstance("https://iicpshuttle-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Users");
         FirebaseUser mUser = mAuth.getCurrentUser();
 
         databaseReference.child(mUser.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
