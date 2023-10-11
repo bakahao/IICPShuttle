@@ -1,0 +1,125 @@
+package com.example.iicpshuttle;
+
+import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
+import androidx.constraintlayout.widget.ConstraintLayout;
+
+public class DriverTimeActivity extends AppCompatActivity {
+
+    private ConstraintLayout constraintLayout;
+    private int numberOfSeats;
+    private int numberOfButtons;
+
+    private int seatCount=20;
+    @SuppressLint("MissingInflatedId")
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_driver_time);
+
+        constraintLayout = findViewById(R.id.drivertime);
+        numberOfSeats = getSeatCountFromDatabase();
+        numberOfButtons = getNumberOfPeopleFromDatabase();
+
+        createButtons(5);
+        
+    }
+
+    private void createButtons(int count) {
+        LinearLayout linear = findViewById(R.id.buttonLayout);
+
+
+        for (int i = 1; i <= count; i++) {
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT);
+            params.topMargin = 50;
+
+            LinearLayout buttonLayout = new LinearLayout(this);
+            buttonLayout.setOrientation(LinearLayout.HORIZONTAL);
+            buttonLayout.setLayoutParams(params);
+
+            // Create the button
+            AppCompatButton apc = new AppCompatButton(this);
+            apc.setId(i);
+            apc.setBackgroundResource(R.drawable.rounded_home_button_background); // 设置按钮背景
+            final int id_ = apc.getId();
+            apc.setTextColor(Color.BLACK);
+
+            // Create the date and time text
+            TextView dateAndTimeText = new TextView(this);
+            dateAndTimeText.setLayoutParams(new LinearLayout.LayoutParams(
+                    0, LinearLayout.LayoutParams.WRAP_CONTENT, 1));
+            dateAndTimeText.setText("Date and Time " + i);
+            dateAndTimeText.setTextColor(Color.BLACK);
+
+            // Create the seat icon
+            ImageView seatIcon = new ImageView(this);
+            seatIcon.setLayoutParams(new LinearLayout.LayoutParams(
+                    50,50));
+            seatIcon.setImageResource(R.drawable.seat); // 设置座位图标
+
+            // Create the seat count text
+            TextView seatCountText = new TextView(this);
+            seatCountText.setLayoutParams(new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.WRAP_CONTENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT));
+            int seatCount = getSeatCountFromDatabase(); // 查询数据库获取座位数量
+            seatCountText.setText("Seats: " + seatCount);
+
+            // Add views to button layout
+            buttonLayout.addView(apc);
+            buttonLayout.addView(dateAndTimeText);
+            buttonLayout.addView(seatIcon);
+            buttonLayout.addView(seatCountText);
+
+            linear.addView(buttonLayout, params);
+
+            // Check seat count and update button availability
+            if (seatCount > 0) {
+                // Enable the button
+                apc.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(v.getContext(), "Button " + id_, Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(DriverTimeActivity.this, AvailableTimeActivity.class);
+                        startActivity(intent);
+                    }
+                });
+            } else {
+                // Disable the button
+                apc.setEnabled(false);
+            }
+        }
+    }
+
+
+    // 查询数据库获取座位数量的示例方法
+    private int getSeatCountFromDatabase() {
+        // 在这里执行数据库查询并返回座位数量
+        return 5; // 这里使用示例值，您需要根据实际情况进行查询
+    }
+
+    private int getNumberOfPeopleFromDatabase() {
+
+        return 5;
+    }
+
+
+
+
+
+
+}

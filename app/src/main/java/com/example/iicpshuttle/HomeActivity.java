@@ -28,6 +28,10 @@ public class HomeActivity extends AppCompatActivity {
         });
 
     }
+    public void onBookShuttleClicked(View view){
+        Intent intent = new Intent(this, BookShuttleActivity.class);
+        startActivity(intent);
+    }
 
     public void onScanMeClicked(View view){
         Intent intent = new Intent(this, ScanMeActivity.class);

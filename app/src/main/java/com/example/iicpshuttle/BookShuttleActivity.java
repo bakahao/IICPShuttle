@@ -1,6 +1,7 @@
 package com.example.iicpshuttle;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -74,6 +75,8 @@ public class BookShuttleActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     Toast.makeText(v.getContext(), "Button " + id_, Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(BookShuttleActivity.this, AvailableTimeActivity.class);
+                    startActivity(intent);
                 }
             });
         }
