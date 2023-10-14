@@ -21,6 +21,11 @@
         tools:ignore="ObsoleteSdkInt">
 
         <activity
+            android:name=".AdminContactUsActivity"
+            android:exported="true">
+        </activity>
+
+        <activity
             android:name=".DriverHomePageActivity"
             android:exported="true">
         </activity>
