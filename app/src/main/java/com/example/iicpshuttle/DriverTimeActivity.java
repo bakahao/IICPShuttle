@@ -4,8 +4,10 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -15,6 +17,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.constraintlayout.widget.ConstraintSet;
 
 public class DriverTimeActivity extends AppCompatActivity {
 
@@ -42,51 +45,69 @@ public class DriverTimeActivity extends AppCompatActivity {
 
 
         for (int i = 1; i <= count; i++) {
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.MATCH_PARENT,
-                    LinearLayout.LayoutParams.WRAP_CONTENT);
-            params.topMargin = 50;
+            ConstraintLayout.LayoutParams params = new ConstraintLayout.LayoutParams(
+                    ConstraintLayout.LayoutParams.MATCH_PARENT,
+                    ConstraintLayout.LayoutParams.WRAP_CONTENT);
+            params.topMargin = 55;
 
-            LinearLayout buttonLayout = new LinearLayout(this);
-            buttonLayout.setOrientation(LinearLayout.HORIZONTAL);
+            ConstraintLayout buttonLayout = new ConstraintLayout(this);
+            //buttonLayout.setOrientation(LinearLayout.HORIZONTAL);
             buttonLayout.setLayoutParams(params);
 
             // Create the button
             AppCompatButton apc = new AppCompatButton(this);
+            apc.setLayoutParams(new ConstraintLayout.LayoutParams(
+                    ConstraintLayout.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.MATCH_PARENT
+            ));
             apc.setId(i);
             apc.setBackgroundResource(R.drawable.rounded_home_button_background); // 设置按钮背景
+            apc.setGravity(Gravity.START);
             final int id_ = apc.getId();
             apc.setTextColor(Color.BLACK);
+            apc.setPadding(40, 40, 0,0);
+            apc.setText("Date and Time " + i);
 
-            // Create the date and time text
-            TextView dateAndTimeText = new TextView(this);
-            dateAndTimeText.setLayoutParams(new LinearLayout.LayoutParams(
-                    0, LinearLayout.LayoutParams.WRAP_CONTENT, 1));
-            dateAndTimeText.setText("Date and Time " + i);
-            dateAndTimeText.setTextColor(Color.BLACK);
 
             // Create the seat icon
             ImageView seatIcon = new ImageView(this);
+            seatIcon.setId(View.generateViewId());
             seatIcon.setLayoutParams(new LinearLayout.LayoutParams(
                     50,50));
+
             seatIcon.setImageResource(R.drawable.seat); // 设置座位图标
 
             // Create the seat count text
             TextView seatCountText = new TextView(this);
+            seatCountText.setId(View.generateViewId());
             seatCountText.setLayoutParams(new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.WRAP_CONTENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT));
-            int seatCount = getSeatCountFromDatabase(); // 查询数据库获取座位数量
+            int seatCount = getNumberOfPeopleFromDatabase();// 查询数据库获取座位数量
+            seatCountText.setPadding(0,40,40,0);
             seatCountText.setText("Seats: " + seatCount);
 
+
+
+            
             // Add views to button layout
             buttonLayout.addView(apc);
-            buttonLayout.addView(dateAndTimeText);
             buttonLayout.addView(seatIcon);
             buttonLayout.addView(seatCountText);
 
-            linear.addView(buttonLayout, params);
+            ConstraintSet constraintSet = new ConstraintSet();
+            constraintSet.clone(buttonLayout);
+            constraintSet.connect(seatCountText.getId(), ConstraintSet.END, apc.getId(), ConstraintSet.END);
+            constraintSet.connect(seatCountText.getId(), ConstraintSet.TOP, apc.getId(), ConstraintSet.TOP);
 
+            constraintSet.connect(seatIcon.getId(), ConstraintSet.END, seatCountText.getId(), ConstraintSet.START);
+            constraintSet.connect(seatIcon.getId(), ConstraintSet.TOP, apc.getId(), ConstraintSet.TOP);
+
+
+
+            constraintSet.applyTo(buttonLayout);
+
+            linear.addView(buttonLayout);
             // Check seat count and update button availability
             if (seatCount > 0) {
                 // Enable the button
