@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -25,6 +26,15 @@ public class HomeActivity extends AppCompatActivity {
         btnLogout.setOnClickListener(view -> {
             mAuth.signOut();
             startActivity(new Intent(HomeActivity.this, LoginActivity.class));
+        });
+
+        AppCompatButton button5 = findViewById(R.id.button5);
+
+        button5.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this, StudentContactUsActivity.class);
+                startActivity(intent);
+            }
         });
 
     }
