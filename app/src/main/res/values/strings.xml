@@ -2,6 +2,7 @@
         <string name="app_name">IICPShuttle</string>
         <string name="todo">TODO</string>
         <string name="login">Login</string>
+        <string name="seat_icon_description">Seat Icon - Indicates available seats</string>
 
         <!--
         <string-array name="hostel_options">
