@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D50606"
+    tools:context=".ManageScheduleHostelActivity$MainActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="23dp"
+            android:layout_marginBottom="8dp">
+
+            <ImageView
+                android:id="@+id/backToHome"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginRight="320dp"
+                android:src="@drawable/back" />
+
+            <ImageView
+                android:id="@+id/addScheduleImage"
+                android:layout_width="24dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="350dp"
+                android:src="@drawable/add_symbol"
+                tools:ignore="RtlHardcoded" />
+
+            <TextView
+                android:id="@+id/scheduleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Schedule"
+                android:textColor="#ffffff"
+                android:textSize="33dp"
+                android:textStyle="bold" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/myRectangleContainer1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintTop_toBottomOf="@+id/scheduleTextView">
+
+            <View
+                android:id="@+id/myRectangle1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="@drawable/rounded_corner"
+                android:orientation="vertical" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/inti_background" />
+
+            <FrameLayout
+                android:id="@+id/innerContainer"
+                android:layout_width="350dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:elevation="4dp">
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:id="@+id/buttonScheduleContainer"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_gravity="center" >
+
+                    <View
+                        android:id="@+id/invisibleButtonContainer"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:alpha="0.8"
+                        android:outlineProvider="background" />
+                    </LinearLayout>
+
+                </ScrollView>
+
+            </FrameLayout>
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
