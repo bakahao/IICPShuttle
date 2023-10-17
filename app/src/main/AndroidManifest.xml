@@ -71,6 +71,12 @@
             android:exported="true">
 
         </activity>
+
+        <activity
+            android:name="ConfirmationActivity"
+            android:exported="true">
+
+        </activity>
 "
 
         <activity

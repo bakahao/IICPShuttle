@@ -84,7 +84,7 @@ public class DriverTimeActivity extends AppCompatActivity {
                     LinearLayout.LayoutParams.WRAP_CONTENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT));
             int seatCount = getNumberOfPeopleFromDatabase();// 查询数据库获取座位数量
-            seatCountText.setPadding(0,40,40,0);
+            seatCountText.setPadding(15,40,40,0);
             seatCountText.setText("Seats: " + seatCount);
 
 
