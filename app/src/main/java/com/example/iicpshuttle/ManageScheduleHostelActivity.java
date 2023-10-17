@@ -52,17 +52,32 @@ public class ManageScheduleHostelActivity extends AppCompatActivity {
 
     private Button createStyledButton(String text) {
         Button button = new Button(this);
-        button.setLayoutParams(new LinearLayout.LayoutParams(
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT
-        ));
+        );
+
+        // Set the top margin (adjust the value as needed)
+        layoutParams.setMargins(0, 0, 0, 1500);
+        button.setLayoutParams(layoutParams);
         button.setText(text);
         button.setBackgroundResource(R.drawable.rounded_home_button_background); // Set the background
-        button.setTextSize(25); // Set the text size
-        button.setMinHeight(55); // Set the minimum height
-        button.setElevation(4); // Set the elevation
+        button.setTextSize(25);
+        button.setMinHeight(55);
+        button.setElevation(4);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ManageScheduleHostelActivity.this, ViewScheduleHostelActivity.class);
+                intent.putExtra("selectedDate", text); // Pass the selected date as an extra
+                startActivity(intent);
+            }
+        });
+
         return button;
     }
+
 
     public void addNewDateButton(String selectedDate) {
         Button dateButton = createStyledButton(selectedDate);
