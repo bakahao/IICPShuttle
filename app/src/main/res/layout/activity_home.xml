@@ -106,6 +106,7 @@
 
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/button1"
+                        android:onClick="onBookShuttleClicked"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@drawable/rounded_home_button_background"
