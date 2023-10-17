@@ -29,7 +29,7 @@ public class HomeActivity extends AppCompatActivity {
             startActivity(new Intent(HomeActivity.this, LoginActivity.class));
         });
 
-        btnRequestShuttle = findViewById(R.id.button3);
+        btnRequestShuttle = findViewById(R.id.button4);
         btnRequestShuttle.setOnClickListener(view -> {
             startActivity(new Intent(HomeActivity.this, RequestShuttleHomeActivity.class));
         });
