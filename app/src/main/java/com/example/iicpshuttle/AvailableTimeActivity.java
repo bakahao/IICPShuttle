@@ -42,7 +42,7 @@ public class AvailableTimeActivity extends AppCompatActivity {
     }
 
     private void createButtons(int count) {
-        LinearLayout linear = findViewById(R.id.buttonLayout);
+        LinearLayout linear = findViewById(R.id.driverTimeLayout);
 
 
         for (int i = 1; i <= count; i++) {
