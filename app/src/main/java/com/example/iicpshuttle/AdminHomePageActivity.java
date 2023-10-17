@@ -10,27 +10,32 @@ import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
-public class AdminHomePageActivity extends AppCompatActivity {
+import com.google.firebase.auth.FirebaseAuth;
 
+public class AdminHomePageActivity extends AppCompatActivity {
+    FirebaseAuth mAuth;
+    Button btnLogout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_homepage);
 
         AppCompatButton button5 = findViewById(R.id.button5);
-
         AppCompatButton buttonManageScheduleHostel = findViewById(R.id.buttonManageScheduleHostel);
+
+        mAuth = FirebaseAuth.getInstance();
+        btnLogout = findViewById(R.id.button6);
+
+        btnLogout.setOnClickListener(view -> {
+            mAuth.signOut();
+            startActivity(new Intent(AdminHomePageActivity.this, LoginActivity.class));
+        });
 
         button5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // 创建一个Intent来启动activity_admin_contact_us
                 Intent intent = new Intent(AdminHomePageActivity.this, AdminContactUsActivity.class);
 
-                // 可选：如果您想传递数据到activity_admin_contact_us，可以使用Intent的putExtra方法
-                // intent.putExtra("key", value);
-
-                // 启动activity_admin_contact_us
                 startActivity(intent);
             }
         });

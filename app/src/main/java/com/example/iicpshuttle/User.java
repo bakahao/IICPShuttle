@@ -1,32 +1,26 @@
 package com.example.iicpshuttle;
 
 public class User {
-    private int id;
-    private String name;
+    private String userName;
+    private String userRole;
     private String email;
-    private String password;
     private String phone;
 
-    public User(int id, String name, String email, String password, String phone) {
-        this.id = id;
-        this.name = name;
+    public User(String name, String role, String email, String phone) {
+        this.userName = name;
+        this.userRole = role;
         this.email = email;
-        this.password = password;
         this.phone = phone;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public String getName() {return name;}
+    public String getUserName() {return userName;}
 
     public String getEmail() {
         return email;
     }
 
-    public String getPassword() {return password;}
-
     public String getPhone() {return phone;}
+
+    public String getUserRole() {return userRole;}
 
 }
