@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -13,6 +14,7 @@ public class HomeActivity extends AppCompatActivity {
 
     FirebaseAuth mAuth;
     Button btnLogout;
+    private Button btnRequestShuttle;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +29,23 @@ public class HomeActivity extends AppCompatActivity {
             startActivity(new Intent(HomeActivity.this, LoginActivity.class));
         });
 
+        btnRequestShuttle = findViewById(R.id.button4);
+        btnRequestShuttle.setOnClickListener(view -> {
+            startActivity(new Intent(HomeActivity.this, RequestShuttleHomeActivity.class));
+        });
+
+        AppCompatButton button5 = findViewById(R.id.button5);
+        button5.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this, StudentContactUsActivity.class);
+                startActivity(intent);
+            }
+        });
+
+    }
+    public void onBookShuttleClicked(View view){
+        Intent intent = new Intent(this, BookShuttleActivity.class);
+        startActivity(intent);
     }
 
     public void onScanMeClicked(View view){

@@ -52,6 +52,7 @@ public class ManageScheduleHostelActivity extends AppCompatActivity {
 
     private Button createStyledButton(String text) {
         Button button = new Button(this);
+
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT
@@ -77,7 +78,6 @@ public class ManageScheduleHostelActivity extends AppCompatActivity {
 
         return button;
     }
-
 
     public void addNewDateButton(String selectedDate) {
         Button dateButton = createStyledButton(selectedDate);
