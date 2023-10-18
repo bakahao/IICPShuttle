@@ -31,11 +31,21 @@ public class AdminHomePageActivity extends AppCompatActivity {
             startActivity(new Intent(AdminHomePageActivity.this, LoginActivity.class));
         });
 
+        AppCompatButton buttonManageScheduleHostel = findViewById(R.id.buttonManageScheduleHostel);
+
         button5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AdminHomePageActivity.this, AdminContactUsActivity.class);
 
+                startActivity(intent);
+            }
+        });
+
+        buttonManageScheduleHostel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminHomePageActivity.this, ManageScheduleHostelActivity.class);
                 startActivity(intent);
             }
         });

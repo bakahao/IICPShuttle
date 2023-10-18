@@ -23,6 +23,7 @@
             android:layout_marginBottom="8dp">
 
             <ImageView
+                android:id="@+id/backViewSchedule"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:src="@drawable/back"
