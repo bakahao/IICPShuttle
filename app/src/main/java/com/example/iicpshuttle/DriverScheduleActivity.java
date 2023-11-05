@@ -15,21 +15,23 @@ import androidx.appcompat.widget.AppCompatButton;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.ConstraintSet;
 
-public class BookShuttleActivity extends AppCompatActivity {
+public class DriverScheduleActivity extends AppCompatActivity {
 
 
 
     private ConstraintLayout constraintLayout;
     private int numberOfButtons;
 
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bookshuttle);
+        setContentView(R.layout.activity_driver_schedule);
 
         constraintLayout = findViewById(R.id.hello);
         numberOfButtons = getNumberOfPeopleFromDatabase();
+
 
         // Create Button
         createButtons(numberOfButtons);
@@ -75,7 +77,7 @@ public class BookShuttleActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     Toast.makeText(v.getContext(), "Button " + id_, Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(BookShuttleActivity.this, AvailableTimeActivity.class);
+                    Intent intent = new Intent(DriverScheduleActivity.this, DriverTimeActivity.class);
                     startActivity(intent);
                 }
             });

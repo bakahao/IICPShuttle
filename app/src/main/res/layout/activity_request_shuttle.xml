@@ -60,7 +60,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/inter_black"
-        android:text="Register"
+        android:text="Request Shuttle"
         android:textColor="#FFFFFF"
         android:textSize="36sp"
         app:layout_constraintBottom_toTopOf="@+id/whiteBackground"
@@ -74,79 +74,46 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop = "85dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginBottom="40dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="95dp"
         android:background="@drawable/login_rounded_background"
         android:orientation="vertical"
-
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="ExtraText">
 
         <TextView
             android:id="@+id/textView2"
-            android:layout_width="233dp"
-            android:layout_height="34dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/inter_medium"
-            android:text="Name:"
-            android:textColor="#000000"
-            android:textSize="20sp"
-            tools:ignore="HardcodedText,TextSizeCheck" />
-
-        <EditText
-            android:id="@+id/nameEditText"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="20dp"
-            android:autofillHints=""
-            android:background="@drawable/edit_text_background"
-            android:hint="Enter Your Name"
-            android:inputType="text"
-            android:minHeight="48dp"
-            android:padding="10dp"
-            android:textColor="#000000"
-            android:textColorHint="#78909C"
-            android:textSize="18sp"
-            tools:ignore="HardcodedText,TextFields,TextSizeCheck,TextContrastCheck" />
-
-        <TextView
-            android:id="@+id/nameErrorTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="4dp"
-            android:text="**Name is required**"
-            android:textColor="#FF0000"
-            android:textSize="18sp"
-            android:visibility="gone"
-            tools:ignore="HardcodedText" />
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/inter_medium"
+            android:text="Student ID : xxxxxx"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            tools:ignore="HardcodedText,TextSizeCheck" />
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="233dp"
-            android:layout_height="34dp"
-            android:layout_marginStart="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
             android:fontFamily="@font/inter_medium"
-            android:text="Email:"
+            android:text="Departure:"
             android:textColor="#000000"
-            android:textSize="20sp"
+            android:textSize="24sp"
             tools:ignore="HardcodedText,TextSizeCheck,VisualLintOverlap" />
 
         <EditText
-            android:id="@+id/emailEditText"
-            android:layout_width="match_parent"
+            android:id="@+id/departureEditText"
+            android:layout_width="304dp"
             android:layout_height="48dp"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="30dp"
             android:layout_marginTop="4dp"
-            android:layout_marginEnd="20dp"
             android:autofillHints=""
             android:background="@drawable/edit_text_background"
-            android:hint="Enter Email"
             android:inputType="text"
             android:minHeight="48dp"
             android:padding="10dp"
@@ -161,65 +128,31 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginTop="4dp"
-            android:text="**Email is required**"
+            android:text="**Departure is required**"
             android:textColor="#FF0000"
             android:textSize="18sp"
             android:visibility="gone"
             tools:ignore="HardcodedText" />
-        <!--
-                <TextView
-                    android:id="@+id/textView3"
-                    android:layout_width="233dp"
-                    android:layout_height="34dp"
-                    android:layout_marginStart="30dp"
-                    android:fontFamily="@font/inter_medium"
-                    android:text="Pick Up Point:"
-                    android:textColor="#000000"
-                    android:textSize="2
-                    tools:ignore="HardcodedText,TextSizeCheck" />
 
-
-                <LinearLayout
-                    android:layout_width="304dp"
-                    android:layout_height="48dp"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginTop="4dp"
-                    android:background="@drawable/edit_text_background"
-                    android:minHeight="48dp"
-                    android:padding="10dp"
-                    android:orientation="vertical">
-
-                    <Spinner
-                        android:id="@+id/idSpinner"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:textColor="#000000"
-                        android:textSize="18sp"
-                        tools:ignore="HardcodedText,TextFields,TextSizeCheck,TextContrastCheck,TouchTargetSizeCheck" />
-
-                </LinearLayout>
-                -->
         <TextView
             android:id="@+id/textView5"
-            android:layout_width="233dp"
-            android:layout_height="34dp"
-            android:layout_marginStart="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
             android:fontFamily="@font/inter_medium"
-            android:text="Password:"
+            android:text="Date:"
             android:textColor="#000000"
-            android:textSize="20sp"
+            android:textSize="24sp"
             tools:ignore="HardcodedText,TextSizeCheck" />
 
         <EditText
-            android:id="@+id/passwordEditText"
-            android:layout_width="match_parent"
+            android:id="@+id/dateEditText"
+            android:layout_width="304dp"
             android:layout_height="48dp"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="30dp"
             android:layout_marginTop="4dp"
-            android:layout_marginEnd="20dp"
             android:autofillHints=""
             android:background="@drawable/edit_text_background"
-            android:hint="Enter Your Password"
             android:inputType="text"
             android:minHeight="48dp"
             android:padding="10dp"
@@ -234,7 +167,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginTop="4dp"
-            android:text="**Password is required**"
+            android:text="**Date is required**"
             android:textColor="#FF0000"
             android:textSize="18sp"
             android:visibility="gone"
@@ -242,25 +175,23 @@
 
         <TextView
             android:id="@+id/textView4"
-            android:layout_width="233dp"
-            android:layout_height="34dp"
-            android:layout_marginStart="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
             android:fontFamily="@font/inter_medium"
-            android:text="Phone(01xxxxxxxx):"
+            android:text="Time:"
             android:textColor="#000000"
-            android:textSize="20sp"
+            android:textSize="24sp"
             tools:ignore="HardcodedText,TextSizeCheck" />
 
         <EditText
-            android:id="@+id/phoneEditText"
-            android:layout_width="match_parent"
+            android:id="@+id/timeEditText"
+            android:layout_width="304dp"
             android:layout_height="48dp"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="30dp"
             android:layout_marginTop="4dp"
-            android:layout_marginEnd="20dp"
             android:autofillHints=""
             android:background="@drawable/edit_text_background"
-            android:hint="Enter Your Phone Number"
             android:inputType="text"
             android:minHeight="48dp"
             android:padding="10dp"
@@ -286,10 +217,10 @@
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="15dp"
             android:background="@drawable/login_button_background"
             android:fontFamily="@font/inter_medium"
-            android:text="Register"
+            android:text="Request"
             android:textColor="#FFFFFF"
             tools:ignore="HardcodedText,DuplicateSpeakableTextCheck" />
 
