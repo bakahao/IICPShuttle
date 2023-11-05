@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#D50606"
-    tools:context=".ManageScheduleHostelActivity$MainActivity">
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -63,110 +63,298 @@
 
             <FrameLayout
                 android:id="@+id/innerContainer"
-                android:layout_width="350dp"
-                android:layout_height="380dp"
+                android:layout_width="348dp"
+                android:layout_height="550dp"
                 android:layout_gravity="center"
                 android:elevation="4dp">
 
                 <View
                     android:id="@+id/myRectangle2"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="380dp"
+                    android:layout_height="449dp"
                     android:layout_gravity="center"
                     android:alpha="0.8"
                     android:background="@drawable/rounded_home_button_background"
                     android:outlineProvider="background" />
 
                 <TextView
+                    android:id="@+id/date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="27dp"
-                    android:layout_marginTop="25dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="130dp"
                     android:text="Date:"
                     android:textColor="#000000"
+                    android:textSize="23dp"
                     android:textStyle="bold"
-                    android:textSize="23dp" />
+                    android:visibility="visible" />
 
                 <EditText
                     android:id="@+id/myEditText1"
-                    android:layout_width="wrap_content"
+                    android:layout_width="240dp"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="170dp"
                     android:layout_marginBottom="110dp"
+                    android:alpha="0.9"
                     android:background="@drawable/schedule_input"
                     android:elevation="4dp"
-                    android:alpha="0.9"
                     android:ems="10"
                     android:hint=""
                     android:inputType="text"
                     android:minHeight="50dp"
                     android:textSize="25dp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:visibility="visible" />
+
+                <ImageButton
+                    android:id="@+id/DatePicker"
+                    android:layout_width="91dp"
+                    android:layout_height="78dp"
+                    android:layout_alignBottom="@+id/myEditText1"
+                    android:layout_marginLeft="250dp"
+                    android:layout_marginTop="150dp"
+                    android:layout_toEndOf="@+id/myEditText1"
+                    android:layout_toRightOf="@+id/myEditText1"
+                    android:maxWidth="40dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/date_picker"
+                    android:visibility="visible" />
 
                 <TextView
+                    android:id="@+id/StartDateText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="27dp"
-                    android:layout_marginTop="110dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="70dp"
+                    android:text="Start Date:"
+                    android:textColor="#000000"
+                    android:textSize="23dp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+
+                <EditText
+                    android:id="@+id/StartDate"
+                    android:layout_width="240dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="100dp"
+                    android:layout_marginBottom="110dp"
+                    android:alpha="0.9"
+                    android:background="@drawable/schedule_input"
+                    android:elevation="4dp"
+                    android:ems="10"
+                    android:hint=""
+                    android:inputType="text"
+                    android:minHeight="50dp"
+                    android:textSize="25dp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+
+                <ImageButton
+                    android:id="@+id/DatePicker1"
+                    android:layout_width="91dp"
+                    android:layout_height="78dp"
+                    android:layout_alignBottom="@+id/StartDate"
+                    android:layout_marginLeft="250dp"
+                    android:layout_marginTop="85dp"
+                    android:layout_toEndOf="@+id/StartDate"
+                    android:layout_toRightOf="@+id/StartDate"
+                    android:maxWidth="40dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/date_picker"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/EndDateText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="150dp"
+                    android:text="End Date:"
+                    android:textColor="#000000"
+                    android:textSize="23dp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+
+
+                <EditText
+                    android:id="@+id/EndDate"
+                    android:layout_width="240dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="180dp"
+                    android:layout_marginBottom="110dp"
+                    android:alpha="0.9"
+                    android:background="@drawable/schedule_input"
+                    android:elevation="4dp"
+                    android:ems="10"
+                    android:hint=""
+                    android:inputType="text"
+                    android:minHeight="50dp"
+                    android:textSize="25dp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+
+                <ImageButton
+                    android:id="@+id/DatePicker2"
+                    android:layout_width="91dp"
+                    android:layout_height="78dp"
+                    android:layout_alignBottom="@+id/EndDate"
+                    android:layout_marginLeft="250dp"
+                    android:layout_marginTop="165dp"
+                    android:layout_toEndOf="@+id/EndDate"
+                    android:layout_toRightOf="@+id/EndDate"
+                    android:maxWidth="40dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/date_picker"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="230dp"
                     android:text="Time:"
                     android:textColor="#000000"
+                    android:textSize="23dp"
                     android:textStyle="bold"
-                    android:textSize="23dp" />
+                    android:visibility="visible" />
 
                 <EditText
                     android:id="@+id/myEditText2"
-                    android:layout_width="wrap_content"
+                    android:layout_width="240dp"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginBottom="25dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="260dp"
+                    android:layout_marginBottom="110dp"
+                    android:alpha="0.9"
                     android:background="@drawable/schedule_input"
                     android:elevation="4dp"
-                    android:alpha="0.9"
                     android:ems="10"
                     android:hint=""
                     android:inputType="text"
+                    android:minHeight="50dp"
                     android:textSize="25dp"
                     android:textStyle="bold"
-                    android:minHeight="50dp"/>
+                    android:visibility="visible" />
+
+                <ImageButton
+                    android:id="@+id/TimePicker"
+                    android:layout_width="99dp"
+                    android:layout_height="74dp"
+                    android:layout_alignBottom="@+id/myEditText2"
+                    android:layout_marginLeft="250dp"
+                    android:layout_marginTop="250dp"
+                    android:layout_toEndOf="@+id/myEditText2"
+                    android:layout_toRightOf="@+id/myEditText2"
+                    android:maxWidth="40dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/time_picker"
+                    android:visibility="visible" />
 
                 <TextView
+                    android:id="@+id/drivertext"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="27dp"
-                    android:layout_marginTop="195dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="310dp"
+                    android:text="Driver:"
+                    android:textColor="#000000"
+                    android:textSize="23dp"
+                    android:textStyle="bold"
+                    android:visibility="visible" />
+
+                <EditText
+                    android:id="@+id/DriverEditText"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="340dp"
+                    android:layout_marginBottom="-60dp"
+                    android:alpha="0.9"
+                    android:background="@drawable/schedule_input"
+                    android:elevation="4dp"
+                    android:ems="10"
+                    android:hint=""
+                    android:inputType="text"
+                    android:minHeight="50dp"
+                    android:textSize="25dp"
+                    android:textStyle="bold"
+                    android:visibility="visible">
+
+                </EditText>
+
+
+                <TextView
+                    android:id="@+id/seattext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="180dp"
+                    android:layout_marginTop="310dp"
                     android:text="Seat:"
                     android:textColor="#000000"
+                    android:textSize="23dp"
                     android:textStyle="bold"
-                    android:textSize="23dp" />
+                    android:visibility="visible" />
 
                 <EditText
                     android:id="@+id/myEditText3"
-                    android:layout_width="wrap_content"
+                    android:layout_width="140dp"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
+                    android:layout_marginLeft="180dp"
+                    android:layout_marginTop="340dp"
                     android:layout_marginBottom="-60dp"
+                    android:alpha="0.9"
                     android:background="@drawable/schedule_input"
                     android:elevation="4dp"
-                    android:alpha="0.9"
                     android:ems="10"
                     android:hint=""
                     android:inputType="text"
+                    android:minHeight="50dp"
                     android:textSize="25dp"
                     android:textStyle="bold"
-                    android:minHeight="50dp"/>
+                    android:visibility="visible"></EditText>
+
+
+                <RadioGroup
+                    android:id="@+id/RadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="135dp"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/RadioButton1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="20dp"
+                        android:checked="true"
+                        android:text="Daily"
+                        android:textSize="20dp" />
+
+                    <RadioButton
+                        android:id="@+id/RadioButton2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Weekly"
+                        android:textSize="20dp" />
+                </RadioGroup>
 
 
                 <FrameLayout
                     android:layout_width="130dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
-                    app:layout_constraintTop_toBottomOf="@+id/myEditText3"
-                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginTop="180dp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginTop="140dp">
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/myEditText3">
 
                     <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/myButton"
+                        android:id="@+id/AddButton"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/login_button_background"
