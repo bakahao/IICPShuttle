@@ -1,9 +1,9 @@
-    <resources>
-        <string name="app_name">IICPShuttle</string>
-        <string name="todo">TODO</string>
-        <string name="login">Login</string>
+<resources>
+    <string name="app_name">IICPShuttle</string>
+    <string name="todo">TODO</string>
+    <string name="login">Login</string>
 
-        <!--
+    <!--
         <string-array name="hostel_options">
             <item>A1-Parkview</item>
             <item>A2-Desa Relau</item>
@@ -12,4 +12,4 @@
 
         </string-array>
         -->
-    </resources>
+</resources>

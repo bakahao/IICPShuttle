@@ -21,6 +21,8 @@ public class AdminHomePageActivity extends AppCompatActivity {
 
         AppCompatButton buttonManageScheduleHostel = findViewById(R.id.buttonManageScheduleHostel);
 
+        AppCompatButton button4 = findViewById(R.id.button4);
+
         button5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -39,6 +41,14 @@ public class AdminHomePageActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AdminHomePageActivity.this, ManageScheduleHostelActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        button4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminHomePageActivity.this, DriverRegisterActivity.class);
                 startActivity(intent);
             }
         });

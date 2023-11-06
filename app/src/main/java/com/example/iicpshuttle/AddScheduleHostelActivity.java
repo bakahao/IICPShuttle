@@ -27,6 +27,7 @@ public class AddScheduleHostelActivity extends AppCompatActivity {
         addScheduleTime = findViewById(R.id.addScheduleTime);
         addScheduleSeat = findViewById(R.id.addScheduleSeat);
 
+
         addScheduleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,5 +51,7 @@ public class AddScheduleHostelActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
     }
 }

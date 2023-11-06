@@ -151,7 +151,7 @@
         android:paddingStart="50dp"
         android:text="Arrange Shuttle"
         android:textColor="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/button5"
+        app:layout_constraintBottom_toTopOf="@+id/button4"
         app:layout_constraintEnd_toEndOf="parent"
         tools:ignore="DuplicateSpeakableTextCheck,HardcodedText,MissingConstraints,RtlSymmetry,VisualLintButtonSize" />
 
@@ -169,12 +169,43 @@
         app:layout_constraintVertical_bias="0.548"
         tools:ignore="ContentDescription,HardcodedText" />
 
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button4"
+        android:layout_width="371dp"
+        android:layout_height="61dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/rounded_home_button_background"
+        android:fontFamily="@font/inter_medium"
+        android:gravity="start|center_vertical"
+        android:paddingStart="50dp"
+        android:text="Driver Registration"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/button5"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="DuplicateSpeakableTextCheck,HardcodedText,MissingConstraints,RtlSymmetry,VisualLintButtonSize" />
+
+    <ImageView
+        android:id="@+id/iconImageView4"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:contentDescription="TODO"
+        android:src="@drawable/driver_registration"
+        app:layout_constraintBottom_toBottomOf="@+id/button4"
+        app:layout_constraintEnd_toEndOf="@+id/button4"
+        app:layout_constraintHorizontal_bias="0.032"
+        app:layout_constraintStart_toStartOf="@+id/button4"
+        app:layout_constraintTop_toTopOf="@+id/button4"
+        app:layout_constraintVertical_bias="0.548"
+        tools:ignore="ContentDescription,HardcodedText" />
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button5"
         android:layout_width="371dp"
         android:layout_height="61dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="164dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="100dp"
         android:background="@drawable/rounded_home_button_background"
         android:fontFamily="@font/inter_medium"
         android:gravity="start|center_vertical"
@@ -184,6 +215,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         tools:ignore="DuplicateSpeakableTextCheck,HardcodedText,MissingConstraints,RtlSymmetry,VisualLintButtonSize" />
+
+
 
     <ImageView
         android:id="@+id/contactIconImageView5"
