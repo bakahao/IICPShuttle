@@ -6,17 +6,11 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
@@ -24,7 +18,7 @@ import com.google.zxing.qrcode.QRCodeWriter;
 public class ScanMeActivity extends AppCompatActivity {
 
     private ImageView qrCodeImageView;
-    private TextView nameTextView, emailTextView;
+    private TextView nameTextView, studentIDTextView;
     private FirebaseAuth mAuth;
     private FirebaseUser mUser;
     private DatabaseReference databaseReference;
@@ -36,7 +30,7 @@ public class ScanMeActivity extends AppCompatActivity {
 
         qrCodeImageView = findViewById(R.id.qrCodeImageView);
         nameTextView = findViewById(R.id.name);
-        emailTextView = findViewById(R.id.email);
+        studentIDTextView = findViewById(R.id.studentID);
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
 
@@ -48,6 +42,9 @@ public class ScanMeActivity extends AppCompatActivity {
 
         // Set the QR code to the ImageView
         qrCodeImageView.setImageBitmap(qrCodeBitmap);
+
+        nameTextView.setText(HomeActivity.user.getUserName());
+        studentIDTextView.setText(HomeActivity.user.getStudentID());
     }
 
     private Bitmap generateQRCode(String text) {

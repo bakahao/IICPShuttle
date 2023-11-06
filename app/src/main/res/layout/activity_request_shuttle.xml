@@ -84,7 +84,7 @@
         tools:ignore="ExtraText">
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/textViewStudentID"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
@@ -106,21 +106,18 @@
             android:textSize="24sp"
             tools:ignore="HardcodedText,TextSizeCheck,VisualLintOverlap" />
 
-        <EditText
-            android:id="@+id/departureEditText"
-            android:layout_width="304dp"
+        <Spinner
+            android:id="@+id/departureSpinner"
+            android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:layout_marginStart="30dp"
+            android:layout_marginLeft="30dp"
             android:layout_marginTop="4dp"
-            android:autofillHints=""
+            android:layout_marginRight="30dp"
             android:background="@drawable/edit_text_background"
             android:inputType="text"
             android:minHeight="48dp"
             android:padding="10dp"
-            android:textColor="#000000"
-            android:textColorHint="#78909C"
-            android:textSize="18sp"
-            tools:ignore="HardcodedText,TextFields,TextSizeCheck,TextContrastCheck,DuplicateClickableBoundsCheck,VisualLintOverlap" />
+            android:spinnerMode="dropdown" />
 
         <TextView
             android:id="@+id/studentIdErrorTextView"
@@ -145,21 +142,44 @@
             android:textSize="24sp"
             tools:ignore="HardcodedText,TextSizeCheck" />
 
-        <EditText
-            android:id="@+id/dateEditText"
-            android:layout_width="304dp"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="4dp"
-            android:autofillHints=""
-            android:background="@drawable/edit_text_background"
-            android:inputType="text"
-            android:minHeight="48dp"
-            android:padding="10dp"
-            android:textColor="#000000"
-            android:textColorHint="#78909C"
-            android:textSize="18sp"
-            tools:ignore="HardcodedText,TextFields,TextSizeCheck,TextContrastCheck" />
+            android:layout_gravity="fill_horizontal"
+            android:layout_marginLeft="30dp">
+
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="fitEnd"
+                android:src="@drawable/date_picker"
+                app:layout_constraintEnd_toStartOf="@id/dateEditText"
+                tools:ignore="MissingConstraints"
+                android:padding="0dp"
+                android:layout_marginRight="15dp"
+                android:onClick="onDatePicker"/>
+
+            <TextView
+                android:id="@+id/dateEditText"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginLeft="65dp"
+                android:layout_marginRight="30dp"
+                android:autofillHints=""
+                android:background="@drawable/edit_text_background"
+                android:minHeight="48dp"
+                android:padding="10dp"
+                android:text="Select Date"
+                android:textColor="#000000"
+                android:textColorHint="#78909C"
+                android:textSize="24sp"
+                android:onClick="onDatePicker"
+                tools:ignore="HardcodedText,MissingConstraints,TextContrastCheck,TextFields,TextSizeCheck" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
         <TextView
             android:id="@+id/passwordErrorTextView"
@@ -184,21 +204,42 @@
             android:textSize="24sp"
             tools:ignore="HardcodedText,TextSizeCheck" />
 
-        <EditText
-            android:id="@+id/timeEditText"
-            android:layout_width="304dp"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="4dp"
-            android:autofillHints=""
-            android:background="@drawable/edit_text_background"
-            android:inputType="text"
-            android:minHeight="48dp"
-            android:padding="10dp"
-            android:textColor="#000000"
-            android:textColorHint="#78909C"
-            android:textSize="18sp"
-            tools:ignore="HardcodedText,TextFields,TextSizeCheck,TextContrastCheck" />
+            android:layout_gravity="fill_horizontal"
+            android:layout_marginLeft="30dp">
+
+            <ImageButton
+                android:id="@+id/timeButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="fitEnd"
+                android:src="@drawable/time_picker"
+                app:layout_constraintEnd_toStartOf="@id/timeEditText"
+                tools:ignore="MissingConstraints"
+                android:padding="0dp"
+                android:layout_marginRight="15dp"
+                android:onClick="onTimePicker"/>
+
+            <TextView
+                android:id="@+id/timeEditText"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginLeft="65dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/edit_text_background"
+                android:minHeight="48dp"
+                android:padding="10dp"
+                android:text="Select Time"
+                android:textColor="#000000"
+                android:textColorHint="#78909C"
+                android:textSize="24sp"
+                android:onClick="onTimePicker"
+                tools:ignore="HardcodedText,MissingConstraints,TextContrastCheck,TextFields,TextSizeCheck" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
             android:id="@+id/phoneErrorTextView"
@@ -213,9 +254,13 @@
             tools:ignore="HardcodedText" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/button1"
-            android:layout_width="150dp"
+            android:id="@+id/buttonRequest"
+            android:onClick="onRequestClick"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingRight="30dp"
+            android:paddingLeft="30dp"
+            android:layout_marginBottom="20dp"
             android:layout_gravity="center"
             android:layout_marginTop="15dp"
             android:background="@drawable/login_button_background"
@@ -223,6 +268,7 @@
             android:text="Request"
             android:textColor="#FFFFFF"
             tools:ignore="HardcodedText,DuplicateSpeakableTextCheck" />
+
 
 
     </LinearLayout>

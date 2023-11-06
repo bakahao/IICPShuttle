@@ -1,6 +1,7 @@
 package com.example.iicpshuttle;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,13 +13,16 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class HomeActivity extends AppCompatActivity {
 
-    FirebaseAuth mAuth;
-    Button btnLogout;
+    private FirebaseAuth mAuth;
+    private Button btnLogout;
     private Button btnRequestShuttle;
+    public static User user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        FirebaseHelper firebaseHelper = new FirebaseHelper();
+        user = (User) LoginActivity.getUserData();
 
         //For testing -- cf
         mAuth = FirebaseAuth.getInstance();
@@ -51,5 +55,16 @@ public class HomeActivity extends AppCompatActivity {
     public void onScanMeClicked(View view){
         Intent intent = new Intent(this, ScanMeActivity.class);
         startActivity(intent);
+    }
+
+    public void getUserData(){
+        SharedPreferences sharedPreferences = getSharedPreferences("userInfo", MODE_PRIVATE);
+
+        String name = sharedPreferences.getString("Username", "");
+        String studentID = sharedPreferences.getString("StudentID", "");
+        String email = sharedPreferences.getString("Email","");
+        String phone = sharedPreferences.getString("Phone", "");
+
+        user = new User(name, "Student", email, phone, studentID);
     }
 }

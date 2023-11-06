@@ -80,7 +80,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/inter_black"
-                android:text="Status"   
+                android:text="Status"
                 android:textColor="#000000"
                 android:textSize="36sp"
                 app:layout_constraintBottom_toTopOf="@+id/whiteBackground"

@@ -21,4 +21,5 @@ public class RequestShuttleHomeActivity extends AppCompatActivity {
             startActivity(new Intent(this, RequestShuttleActivity.class));
         });
     }
+
 }
