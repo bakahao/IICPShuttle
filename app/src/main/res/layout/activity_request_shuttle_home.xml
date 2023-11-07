@@ -32,7 +32,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="ContentDescription" />
 
     <TextView
@@ -40,7 +40,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/inter_black"
-        android:text="Home(Driver)"
+        android:text="Home"
         android:textColor="#FFFFFF"
         android:textSize="36sp"
         app:layout_constraintBottom_toTopOf="@+id/whiteBackground"
@@ -58,6 +58,43 @@
         android:orientation="vertical"
         >
 
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="214dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/login_rounded_background"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/button1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.515"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/whiteBackground"
+            app:layout_constraintVertical_bias="0.693"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/inter_black"
+                android:text="Status"   
+                android:textColor="#000000"
+                android:textSize="36sp"
+                app:layout_constraintBottom_toTopOf="@+id/whiteBackground"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="HardcodedText,MissingConstraints,TextContrastCheck,VisualLintBounds" />
+        </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="61dp"
@@ -65,77 +102,36 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/button1"
-                android:onClick="onAttendanceHostelCLick"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/rounded_home_button_background"
                 android:fontFamily="@font/inter_medium"
                 android:gravity="start|center_vertical"
                 android:paddingStart="60dp"
-                android:text="Attendance (Hostel)"
+                android:text="Request A Shuttle"
                 android:textColor="#000000"
                 app:layout_constraintEnd_toEndOf="parent"
                 tools:ignore="DuplicateSpeakableTextCheck,HardcodedText,MissingConstraints,RtlSymmetry,VisualLintButtonSize">
 
             </androidx.appcompat.widget.AppCompatButton>
 
-                <ImageView
-                    android:id="@+id/iconImageView"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:src="@drawable/event"
-                    app:layout_constraintBottom_toBottomOf="@+id/button1"
-                    app:layout_constraintEnd_toEndOf="@+id/button1"
-                    app:layout_constraintHorizontal_bias="0.032"
-                    app:layout_constraintStart_toStartOf="@+id/button1"
-                    app:layout_constraintTop_toTopOf="@+id/button1"
-                    app:layout_constraintVertical_bias="0.548"
-                    android:contentDescription="TODO"
-                    tools:ignore="ContentDescription,HardcodedText" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="61dp"
-            android:layout_marginTop="20dp">
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button2"
-                android:onClick="onAttendanceHostelCLick"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/rounded_home_button_background"
-                android:fontFamily="@font/inter_medium"
-                android:gravity="start|center_vertical"
-                android:paddingStart="60dp"
-                android:text="Attendance (Hostel)"
-                android:textColor="#000000"
-                app:layout_constraintEnd_toEndOf="parent"
-                tools:ignore="DuplicateSpeakableTextCheck,HardcodedText,MissingConstraints,RtlSymmetry,VisualLintButtonSize">
-
-            </androidx.appcompat.widget.AppCompatButton>
-
-        <ImageView
-                android:id="@+id/iconImageView2"
+            <ImageView
+                android:id="@+id/iconImageView"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
                 android:contentDescription="TODO"
-                android:src="@drawable/event"
-                app:layout_constraintBottom_toBottomOf="@+id/button2"
-                app:layout_constraintEnd_toEndOf="@+id/button2"
-                app:layout_constraintHorizontal_bias="0.032"
-                app:layout_constraintStart_toStartOf="@+id/button2"
-                app:layout_constraintTop_toTopOf="@+id/button2"
-                app:layout_constraintVertical_bias="0.516"
+                android:src="@drawable/shuttle"
+                app:layout_constraintStart_toStartOf="@+id/button1"
+                app:layout_constraintTop_toTopOf="@+id/button1"
                 tools:ignore="ContentDescription,HardcodedText" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-     </LinearLayout>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
 
+    </LinearLayout>
 
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -61,7 +61,7 @@ public class ManageScheduleHostelActivity extends AppCompatActivity {
         layoutParams.setMargins(0, 0, 0, 1500);
         button.setLayoutParams(layoutParams);
         button.setText(text);
-        button.setBackgroundResource(R.drawable.rounded_home_button_background);
+        button.setBackgroundResource(R.drawable.rounded_home_button_background); // Set the background
         button.setTextSize(25);
         button.setMinHeight(55);
         button.setElevation(4);
@@ -70,7 +70,7 @@ public class ManageScheduleHostelActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ManageScheduleHostelActivity.this, ViewScheduleHostelActivity.class);
-                intent.putExtra("selectedDate", text);
+                intent.putExtra("selectedDate", text); // Pass the selected date as an extra
                 startActivity(intent);
             }
         });
