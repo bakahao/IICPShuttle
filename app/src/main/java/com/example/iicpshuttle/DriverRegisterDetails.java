@@ -45,7 +45,6 @@ public class DriverRegisterDetails extends AppCompatActivity {
         DriverNumberPlateErrorTextView = findViewById(R.id.DriverNumberPlateErrorTextView);
         DriverseatErrorTextView = findViewById(R.id.DriverseatErrorTextView);
 
-        // Get user input
         String numberPlate = driverNumberPlateEditText.getText().toString().trim();
         String maximumSeat = driverSeatEditText.getText().toString().trim();
 
@@ -70,7 +69,7 @@ public class DriverRegisterDetails extends AppCompatActivity {
 
             DatabaseReference userRef = FirebaseDatabase.getInstance("https://iicpshuttle-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference();
 
-            DatabaseReference userNodeRef = userRef.child("Users").child(userId);
+            DatabaseReference userNodeRef = userRef.child("Driver").child(userId);
 
             DatabaseReference shuttleRef = userNodeRef.child("Shuttle:");
 
@@ -81,9 +80,11 @@ public class DriverRegisterDetails extends AppCompatActivity {
             Toast.makeText(DriverRegisterDetails.this, "Driver registered successfully", Toast.LENGTH_SHORT).show();
         }
     }
+
+
     private void onIconClick(View view) {
         // 创建 Intent 以启动 LoginActivity
-        Intent intent = new Intent(DriverRegisterDetails.this, AdminHomePageActivity.class);
+        Intent intent = new Intent(this, AdminHomePageActivity.class);
         startActivity(intent);
     }
 
