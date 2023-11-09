@@ -43,8 +43,15 @@ public class HomeActivity extends AppCompatActivity {
         });
 
     }
-    public void onBookShuttleClicked(View view){
+    public void onBookHostelShuttleClicked(View view){
         Intent intent = new Intent(this, BookShuttleActivity.class);
+        intent.putExtra("Departure", "HostelShuttle");
+        startActivity(intent);
+    }
+
+    public void onBookCampusShuttleCLicked(View view){
+        Intent intent = new Intent(this, BookShuttleActivity.class);
+        intent.putExtra("Departure", "CampusShuttle");
         startActivity(intent);
     }
 
