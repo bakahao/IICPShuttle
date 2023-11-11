@@ -29,8 +29,7 @@ public class LoginActivity extends Activity {
 
     private static Object userData;
 
-    SharedPreferences sharedPreferences;
-    public static final String userPref = "userInfo";
+    public static String userUID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,6 +84,7 @@ public class LoginActivity extends Activity {
     private void checkRole(){
         databaseReference = FirebaseDatabase.getInstance("https://iicpshuttle-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Users");
         FirebaseUser mUser = mAuth.getCurrentUser();
+        userUID = mUser.getUid();
 
         databaseReference.child(mUser.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -122,4 +122,5 @@ public class LoginActivity extends Activity {
     public static Object getUserData(){
         return userData;
     }
+    public static String getUserUID(){return userUID;}
 }

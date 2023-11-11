@@ -38,7 +38,7 @@ public class ScanMeActivity extends AppCompatActivity {
         String textToEncode = getStudentUid();
 
         // Generate the QR code
-        Bitmap qrCodeBitmap = generateQRCode(textToEncode);
+        Bitmap qrCodeBitmap = generateQRCode(LoginActivity.userUID);
 
         // Set the QR code to the ImageView
         qrCodeImageView.setImageBitmap(qrCodeBitmap);

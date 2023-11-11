@@ -37,7 +37,7 @@ public class RequestShuttleActivity extends AppCompatActivity {
         departureSpinner = findViewById(R.id.departureSpinner);
         dateTextView = findViewById(R.id.dateEditText);
         timeTextView = findViewById(R.id.timeEditText);
-        ArrayAdapter<CharSequence> adapter=ArrayAdapter.createFromResource(this, R.array.departure, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter=ArrayAdapter.createFromResource(this, R.array.departureRequestShuttle, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         departureSpinner.setAdapter(adapter);
     }
@@ -95,12 +95,12 @@ public class RequestShuttleActivity extends AppCompatActivity {
         String departure = departureSpinner.getSelectedItem().toString();
         String date = dateTextView.getText().toString();
         String time = timeTextView.getText().toString();
-        String studentID = textViewStudentID.getText().toString().substring("Student ID: ".length());
 
-        RequestShuttle requestShuttle = new RequestShuttle(departure, date, time);
+        RequestShuttle requestShuttle = new RequestShuttle(departure, date, time, "Pending");
 
         DatabaseReference db = FirebaseDatabase.getInstance("https://iicpshuttle-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("RequestShuttle");
-        db.child(studentID).setValue(requestShuttle).addOnCompleteListener(new OnCompleteListener<Void>() {
+        String uniqueKey = db.push().getKey();
+        db.child(HomeActivity.userUID).child(uniqueKey).setValue(requestShuttle).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful()){
