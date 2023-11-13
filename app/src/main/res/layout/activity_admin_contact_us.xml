@@ -63,7 +63,7 @@
 
     <View
         android:id="@+id/view"
-        android:layout_width="378dp"
+        android:layout_width="match_parent"
         android:layout_height="71dp"
         android:layout_marginTop="60dp"
         android:layout_marginEnd="16dp"
@@ -141,7 +141,6 @@
         android:src="@drawable/telephone"
         app:layout_constraintBottom_toBottomOf="@+id/view2"
         app:layout_constraintEnd_toStartOf="@+id/phoneEditText_contact"
-        app:layout_constraintEnd_toStartOf="@+id/phoneEditText"
         app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="@+id/view"
         tools:ignore="ContentDescription,HardcodedText,MissingConstraints" />

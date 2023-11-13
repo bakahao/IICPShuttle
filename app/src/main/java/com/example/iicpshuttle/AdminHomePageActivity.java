@@ -2,6 +2,7 @@ package com.example.iicpshuttle;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -20,6 +21,8 @@ public class AdminHomePageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_admin_homepage);
 
         AppCompatButton button5 = findViewById(R.id.button5);
+        AppCompatButton buttonManageScheduleHostel = findViewById(R.id.buttonManageScheduleHostel);
+        AppCompatButton buttonManageScheduleCampus = findViewById(R.id.buttonManageScheduleCampus);
 
         mAuth = FirebaseAuth.getInstance();
         btnLogout = findViewById(R.id.button6);
@@ -28,11 +31,32 @@ public class AdminHomePageActivity extends AppCompatActivity {
             mAuth.signOut();
             startActivity(new Intent(AdminHomePageActivity.this, LoginActivity.class));
         });
+
+        //AppCompatButton buttonManageScheduleHostel = findViewById(R.id.buttonManageScheduleHostel);
+
         button5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AdminHomePageActivity.this, AdminContactUsActivity.class);
 
+                startActivity(intent);
+            }
+        });
+
+        buttonManageScheduleHostel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminHomePageActivity.this, ManageScheduleHostelActivity.class);
+                intent.putExtra("Departure", "HostelShuttle");
+                startActivity(intent);
+            }
+        });
+
+        buttonManageScheduleCampus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminHomePageActivity.this, ManageScheduleHostelActivity.class);
+                intent.putExtra("Departure", "CampusShuttle");
                 startActivity(intent);
             }
         });

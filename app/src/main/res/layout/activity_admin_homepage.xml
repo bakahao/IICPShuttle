@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -32,7 +33,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="1.0"
         tools:ignore="ContentDescription" />
 
     <TextView
@@ -51,16 +52,19 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="378dp"
+        android:layout_width="match_parent"
         android:layout_height="214dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
         android:background="@drawable/login_rounded_background"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/button1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/whiteBackground"
-        app:layout_constraintVertical_bias="0.661"
         tools:ignore="MissingConstraints">
 
         <TextView
@@ -78,82 +82,60 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="HardcodedText,MissingConstraints,TextContrastCheck,VisualLintBounds" />
+
+
     </LinearLayout>
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button1"
-        android:layout_width="371dp"
-        android:layout_height="61dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="16dp"
-        android:background="@drawable/rounded_home_button_background"
-        android:fontFamily="@font/inter_medium"
-        android:gravity="start|center_vertical"
-        android:paddingStart="50dp"
-        android:text="Manage Schedule (Hostel)"
-        android:textColor="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
-        app:layout_constraintEnd_toEndOf="@+id/backgroundImage"
-        tools:ignore="DuplicateSpeakableTextCheck,HardcodedText,MissingConstraints,RtlSymmetry,VisualLintButtonSize" />
 
     <ImageView
         android:id="@+id/iconImageView"
         android:layout_width="30dp"
         android:layout_height="30dp"
+        android:layout_marginBottom="28dp"
         android:contentDescription="TODO"
         android:src="@drawable/event"
-        app:layout_constraintBottom_toBottomOf="@+id/button1"
-        app:layout_constraintEnd_toEndOf="@+id/button1"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonManageScheduleHostel"
+        app:layout_constraintEnd_toEndOf="@+id/buttonManageScheduleHostel"
         app:layout_constraintHorizontal_bias="0.032"
-        app:layout_constraintStart_toStartOf="@+id/button1"
-        app:layout_constraintTop_toTopOf="@+id/button1"
-        app:layout_constraintVertical_bias="0.516"
+        app:layout_constraintStart_toStartOf="@+id/buttonManageScheduleHostel"
         tools:ignore="ContentDescription,HardcodedText" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button2"
-        android:layout_width="371dp"
+        android:id="@+id/buttonManageScheduleCampus"
+        android:layout_width="match_parent"
         android:layout_height="61dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="16dp"
         android:background="@drawable/rounded_home_button_background"
         android:fontFamily="@font/inter_medium"
         android:gravity="start|center_vertical"
         android:paddingStart="50dp"
         android:text="Manage Schedule (Campus)"
         android:textColor="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonManageScheduleHostel"
         tools:ignore="DuplicateSpeakableTextCheck,HardcodedText,MissingConstraints,RtlSymmetry,VisualLintButtonSize" />
-
-    <ImageView
-        android:id="@+id/iconImageView2"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:contentDescription="TODO"
-        android:src="@drawable/event"
-        app:layout_constraintBottom_toBottomOf="@+id/button2"
-        app:layout_constraintEnd_toEndOf="@+id/button2"
-        app:layout_constraintHorizontal_bias="0.032"
-        app:layout_constraintStart_toStartOf="@+id/button2"
-        app:layout_constraintTop_toTopOf="@+id/button2"
-        app:layout_constraintVertical_bias="0.516"
-        tools:ignore="ContentDescription,HardcodedText" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button3"
-        android:layout_width="371dp"
+        android:layout_width="match_parent"
         android:layout_height="61dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="16dp"
         android:background="@drawable/rounded_home_button_background"
         android:fontFamily="@font/inter_medium"
         android:gravity="start|center_vertical"
         android:paddingStart="50dp"
         android:text="Arrange Shuttle"
         android:textColor="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/button5"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonManageScheduleCampus"
         tools:ignore="DuplicateSpeakableTextCheck,HardcodedText,MissingConstraints,RtlSymmetry,VisualLintButtonSize" />
 
     <ImageView
@@ -172,18 +154,21 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button5"
-        android:layout_width="371dp"
-        android:layout_height="61dp"
+        android:layout_width="match_parent"
+        android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="164dp"
+        android:layout_height="61dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/rounded_home_button_background"
         android:fontFamily="@font/inter_medium"
         android:gravity="start|center_vertical"
         android:paddingStart="50dp"
         android:text="Contact Us"
         android:textColor="#000000"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button3"
         tools:ignore="DuplicateSpeakableTextCheck,HardcodedText,MissingConstraints,RtlSymmetry,VisualLintButtonSize" />
 
     <ImageView
@@ -201,19 +186,55 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button6"
-        android:layout_width="371dp"
+        android:layout_width="match_parent"
         android:layout_height="61dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="80dp"
         android:background="@drawable/rounded_home_button_background"
         android:fontFamily="@font/inter_medium"
         android:gravity="start|center_vertical"
         android:paddingStart="50dp"
         android:text="Log out Testing"
         android:textColor="#000000"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button5"
         tools:ignore="DuplicateSpeakableTextCheck,HardcodedText,MissingConstraints,RtlSymmetry,VisualLintButtonSize" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonManageScheduleHostel"
+        android:layout_width="match_parent"
+        android:layout_height="61dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/rounded_home_button_background"
+        android:fontFamily="@font/inter_medium"
+        android:gravity="start|center_vertical"
+        android:paddingStart="50dp"
+        android:text="Manage Schedule (Hostel)"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        tools:ignore="DuplicateSpeakableTextCheck,HardcodedText,MissingConstraints,RtlSymmetry,VisualLintButtonSize" />
+
+    <ImageView
+        android:id="@+id/iconImageView2"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:contentDescription="TODO"
+        android:src="@drawable/event"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonManageScheduleCampus"
+        app:layout_constraintEnd_toEndOf="@+id/buttonManageScheduleCampus"
+        app:layout_constraintHorizontal_bias="0.032"
+        app:layout_constraintStart_toStartOf="@+id/buttonManageScheduleCampus"
+        app:layout_constraintTop_toTopOf="@+id/buttonManageScheduleCampus"
+        app:layout_constraintVertical_bias="0.483"
+        tools:ignore="ContentDescription,HardcodedText" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
