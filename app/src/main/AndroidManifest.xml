@@ -104,9 +104,8 @@
         </activity>
 
         <activity
-            android:name="ConfirmationActivity"
+            android:name=".AvailableDepartureActivity"
             android:exported="true">
-
         </activity>
 "
 

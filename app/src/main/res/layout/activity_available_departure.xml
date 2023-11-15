@@ -40,9 +40,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/inter_black"
-        android:text="Available Time"
+        android:text="Available Departure"
         android:textColor="#FFFFFF"
-        android:textSize="34sp"
+        android:textSize="32sp"
         app:layout_constraintBottom_toTopOf="@+id/whiteBackground"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -50,7 +50,7 @@
         tools:ignore="HardcodedText,MissingConstraints,TextContrastCheck,VisualLintBounds" />
 
     <LinearLayout
-        android:id="@+id/studentAvailableTimeLayout"
+        android:id="@+id/studentAvailableDepartureLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"

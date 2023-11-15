@@ -29,7 +29,7 @@ public class LoginActivity extends Activity {
 
     private static Object userData;
 
-    public static String userUID;
+    private static String userUID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
