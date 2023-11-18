@@ -21,13 +21,12 @@ public class DriverHomePageActivity extends AppCompatActivity {
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Sign out the current user
                 FirebaseAuth.getInstance().signOut();
 
-                // Redirect to the login page or perform other actions
+
                 Intent intent = new Intent(DriverHomePageActivity.this, LoginActivity.class);
                 startActivity(intent);
-                finish(); // Optional: finish the current activity to prevent going back to it
+                finish();
             }
         });
     }
@@ -36,21 +35,15 @@ public class DriverHomePageActivity extends AppCompatActivity {
 
 
     public void onAttendanceHostelClick(View view){
-        // Pass an extra parameter indicating no filter requirement
         Intent intent = new Intent(this, DriverScheduleActivity.class);
-        intent.putExtra("filterDeparture", false); // false for no filter
+        intent.putExtra("filterDeparture", false);
         startActivity(intent);
     }
 
     public void onAttendanceCampusClick(View view){
-        // Pass an extra parameter indicating the filter requirement for IICP
         Intent intent = new Intent(this, DriverScheduleActivity.class);
-        intent.putExtra("filterDeparture", true); // true for IICP filter
+        intent.putExtra("filterDeparture", true);
         startActivity(intent);
     }
 
-    public void onViewScheduleCLick(View view){
-        Intent intent = new Intent(this, DriverScheduleActivity.class);
-        startActivity(intent);
-    }
 }

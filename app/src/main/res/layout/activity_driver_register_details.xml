@@ -41,20 +41,6 @@
         tools:ignore="VisualLintBounds" />
 
 
-    <ImageView
-        android:id="@+id/backgroundImage"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:alpha="0.1"
-        android:src="@drawable/inti_logo"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        tools:ignore="ContentDescription" />
-
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
@@ -171,6 +157,7 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/SubmitDriverDetails"
+            android:onClick="onIconClick"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -180,6 +167,14 @@
             android:text="Submit"
             android:textColor="#FFFFFF"
             tools:ignore="HardcodedText,DuplicateSpeakableTextCheck" />
+
+        <ImageView
+            android:id="@+id/backgroundImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0.1"
+            android:src="@drawable/inti_logo"
+            tools:ignore="ContentDescription" />
 
 
     </LinearLayout>
