@@ -69,6 +69,71 @@ public class BookShuttleActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()){
+                    for (DataSnapshot dateSnapshot: snapshot.getChildren()){
+
+                        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                                LinearLayout.LayoutParams.MATCH_PARENT,
+                                LinearLayout.LayoutParams.WRAP_CONTENT);
+                        params.topMargin = 50;
+//
+
+                        AppCompatButton apc = new AppCompatButton(BookShuttleActivity.this);
+                        apc.setId(dateSnapshot.getKey().hashCode());
+                        apc.setBackgroundResource(R.drawable.rounded_home_button_background);
+                        final int id_ = apc.getId();
+                        apc.setText(dateSnapshot.getKey());
+                        apc.setTextColor(Color.BLACK);
+                        linear.addView(apc, params);
+                        AppCompatButton btn = findViewById(id_);
+                        btn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Toast.makeText(v.getContext(), "Button " + id_, Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(BookShuttleActivity.this, AvailableTimeActivity.class);
+                                intent.putExtra("Departure", departure);
+                                intent.putExtra("Date", dateSnapshot.getKey());
+                                startActivity(intent);
+
+                            }
+                        });
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+
+    private void createButtons(int count) {
+        LinearLayout linear = findViewById(R.id.buttonLayout);
+
+
+        for (int i = 1; i <= count; i++){
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT);
+            params.topMargin = 50;
+//
+
+            AppCompatButton apc = new AppCompatButton(this);
+            apc.setId(i);
+            apc.setBackgroundResource(R.drawable.rounded_home_button_background);
+            final int id_ = apc.getId();
+            apc.setText("Button " + id_);
+            apc.setTextColor(Color.BLACK);
+            linear.addView(apc, params);
+            AppCompatButton btn = findViewById(id_);
+            btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(v.getContext(), "Button " + id_, Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(BookShuttleActivity.this, AvailableTimeActivity.class);
+                    startActivity(intent);
+
                     Date thisWeekSaturday = getThisWeekSaturday();
                     Calendar calendar = Calendar.getInstance();
 
@@ -117,6 +182,7 @@ public class BookShuttleActivity extends AppCompatActivity {
 
 
                     }
+
                 }
             }
 

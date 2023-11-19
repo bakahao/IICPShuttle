@@ -16,10 +16,13 @@ public class ManageScheduleHostelActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manage_schedule_hostel);
 
+        Intent intent = getIntent();
+        String departure = intent.getStringExtra("Departure");
+
         buttonContainer = findViewById(R.id.buttonScheduleContainer);
 
         // Retrieve the selected date from the intent
-        Intent intent = getIntent();
+
         if (intent != null && intent.hasExtra("selectedDate")) {
             String selectedDate = intent.getStringExtra("selectedDate");
             addNewDateButton(selectedDate);
@@ -32,6 +35,7 @@ public class ManageScheduleHostelActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ManageScheduleHostelActivity.this, AddScheduleHostelActivity.class);
+                intent.putExtra("Departure", departure);
                 startActivity(intent);
             }
         });
