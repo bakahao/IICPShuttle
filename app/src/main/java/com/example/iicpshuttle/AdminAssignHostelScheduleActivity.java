@@ -45,6 +45,7 @@ public class AdminAssignHostelScheduleActivity extends Activity {
         selectedTime = intent.getStringExtra("selectedTime");
         selectedDate = intent.getStringExtra("Date");
         departure = intent.getStringExtra("Departure");
+        shuttleUid = intent.getStringExtra("selectedShuttleUid");
 
         spinner = findViewById(R.id.spinner);
         viewCarPlate = findViewById(R.id.textView6);
@@ -140,7 +141,7 @@ public class AdminAssignHostelScheduleActivity extends Activity {
             public void onClick(View view) {
                 // Construct the correct path to the data to be deleted
                 DatabaseReference dataRef = FirebaseDatabase.getInstance("https://iicpshuttle-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference()
-                        .child("ShuttleSchedule").child(departure).child(selectedDate).child(selectedTime);
+                        .child("ShuttleSchedule").child(departure).child(selectedDate).child(selectedTime).child(shuttleUid);
 
                 // Attempt to delete the data
                 dataRef.removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -169,7 +170,7 @@ public class AdminAssignHostelScheduleActivity extends Activity {
                             String shuttleScheduleKey = shuttleScheduleSnapshot.getKey();
 
                             // Update the driverName and shuttleCarPlate in the ShuttleSchedule
-                            shuttleScheduleDatabaseReference.child(departure).child(selectedDate).child(selectedTime).child(shuttleScheduleKey)
+                            shuttleScheduleDatabaseReference.child(departure).child(selectedDate).child(selectedTime).child(shuttleUid)
                                     .child("shuttleDriver").setValue(selectedDriverName);
 
                             // Use the selected driver's name to find their UID in the database
@@ -189,7 +190,7 @@ public class AdminAssignHostelScheduleActivity extends Activity {
                                                     String carPlate = dataSnapshot.getValue(String.class);
                                                     if (carPlate != null) {
                                                         // Update the shuttleCarPlate in the ShuttleSchedule
-                                                        shuttleScheduleDatabaseReference.child(departure).child(selectedDate).child(selectedTime).child(shuttleScheduleKey)
+                                                        shuttleScheduleDatabaseReference.child(departure).child(selectedDate).child(selectedTime).child(shuttleUid)
                                                                 .child("shuttleCarPlate").setValue(carPlate);
                                                     }
                                                 }
@@ -206,7 +207,7 @@ public class AdminAssignHostelScheduleActivity extends Activity {
                                                     String noSeat = dataSnapshot.getValue(String.class);
                                                     if (noSeat != null) {
                                                         // Update the shuttleCarPlate in the ShuttleSchedule
-                                                        shuttleScheduleDatabaseReference.child(departure).child(selectedDate).child(selectedTime).child(shuttleScheduleKey)
+                                                        shuttleScheduleDatabaseReference.child(departure).child(selectedDate).child(selectedTime).child(shuttleUid)
                                                                 .child("shuttleSeat").setValue(noSeat);
                                                     }
                                                 }
