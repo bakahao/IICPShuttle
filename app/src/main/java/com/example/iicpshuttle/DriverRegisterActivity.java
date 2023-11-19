@@ -122,4 +122,5 @@ public class DriverRegisterActivity extends AppCompatActivity {
         Intent intent = new Intent(this, DriverRegisterDetails.class);
         startActivity(intent);
     }
+
 }

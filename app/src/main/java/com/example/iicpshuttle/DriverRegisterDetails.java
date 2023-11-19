@@ -62,7 +62,6 @@ public class DriverRegisterDetails extends AppCompatActivity {
             }
             return;
         }
-
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
             String userId = currentUser.getUid();
@@ -78,6 +77,9 @@ public class DriverRegisterDetails extends AppCompatActivity {
 
 
             Toast.makeText(DriverRegisterDetails.this, "Driver registered successfully", Toast.LENGTH_SHORT).show();
+
+            Intent intent = new Intent(this, AdminHomePageActivity.class);
+            startActivity(intent);
         }
     }
 
