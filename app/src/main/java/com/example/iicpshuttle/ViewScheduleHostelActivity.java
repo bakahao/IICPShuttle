@@ -23,6 +23,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+
 public class ViewScheduleHostelActivity extends AppCompatActivity {
     private String date, shuttleTime, shuttleUid, shuttleSeat;
     private String departure;
@@ -63,124 +65,107 @@ public class ViewScheduleHostelActivity extends AppCompatActivity {
     private void createButton(){
 
         DatabaseReference db = FirebaseDatabase.getInstance("https://iicpshuttle-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("ShuttleSchedule");
+        ArrayList<String> shuttleIdList = new ArrayList<>();
         db.child(departure).child(date).addListenerForSingleValueEvent(new ValueEventListener() {
+
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+
                 for (DataSnapshot timeSnapShot: snapshot.getChildren()){
-                    shuttleTime = timeSnapShot.getKey();
+                    for(DataSnapshot dataSnapshot: timeSnapShot.getChildren()){
+                        shuttleTime = dataSnapshot.child("shuttleTime").getValue(String.class);
+                        if(shuttleTime != null){
+                            final String shuttleUid = dataSnapshot.getKey();
+                            //shuttleUid = dataSnapshot.getKey();
+                            //shuttleIdList.add(shuttleUid);
+                            shuttleSeat = dataSnapshot.child("shuttleSeat").getValue(String.class);
+                            ConstraintLayout.LayoutParams params = new ConstraintLayout.LayoutParams(
+                                    ConstraintLayout.LayoutParams.MATCH_PARENT,
+                                    ConstraintLayout.LayoutParams.WRAP_CONTENT);
+                            params.topMargin = 55;
 
-                    db.child(departure).child(date).child(shuttleTime).addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            for (DataSnapshot uidSnapShot: snapshot.getChildren()){
-                                shuttleUid = uidSnapShot.getKey();
+                            ConstraintLayout buttonLayout = new ConstraintLayout(ViewScheduleHostelActivity.this);
+                            //buttonLayout.setOrientation(LinearLayout.HORIZONTAL);
+                            buttonLayout.setLayoutParams(params);
 
-                                db.child(departure).child(date).child(shuttleTime).child(shuttleUid).addListenerForSingleValueEvent(new ValueEventListener() {
+                            // Create the button
+                            AppCompatButton apc = new AppCompatButton(ViewScheduleHostelActivity.this);
+                            apc.setLayoutParams(new ConstraintLayout.LayoutParams(
+                                    ConstraintLayout.LayoutParams.MATCH_PARENT,
+                                    ViewGroup.LayoutParams.MATCH_PARENT
+                            ));
+                            apc.setId(timeSnapShot.getKey().hashCode());
+                            apc.setBackgroundResource(R.drawable.rounded_home_button_background); // 设置按钮背景
+                            apc.setGravity(Gravity.START);
+                            final int id_ = apc.getId();
+                            apc.setTextColor(Color.BLACK);
+                            apc.setPadding(40, 40, 0,0);
+                            apc.setText(timeSnapShot.getKey());
 
+
+                            // Create the seat icon
+                            ImageView seatIcon = new ImageView(ViewScheduleHostelActivity.this);
+                            seatIcon.setId(View.generateViewId());
+                            seatIcon.setLayoutParams(new LinearLayout.LayoutParams(100,80));
+
+                            seatIcon.setImageResource(R.drawable.seat); // 设置座位图标
+
+                            // Create the seat count text
+                            TextView seatCountText = new TextView(ViewScheduleHostelActivity.this);
+                            seatCountText.setId(View.generateViewId());
+                            seatCountText.setLayoutParams(new LinearLayout.LayoutParams(
+                                    LinearLayout.LayoutParams.WRAP_CONTENT,
+                                    LinearLayout.LayoutParams.WRAP_CONTENT));
+                            seatCountText.setPadding(15, 40, 40, 0);
+                            seatCountText.setText("Seats: " + shuttleSeat); // Set shuttleSeat value
+
+                            // Add views to button layout
+                            buttonLayout.addView(apc);
+                            buttonLayout.addView(seatIcon);
+                            buttonLayout.addView(seatCountText);
+
+                            ConstraintSet constraintSet = new ConstraintSet();
+                            constraintSet.clone(buttonLayout);
+                            constraintSet.connect(seatCountText.getId(), ConstraintSet.END, apc.getId(), ConstraintSet.END);
+                            constraintSet.connect(seatCountText.getId(), ConstraintSet.TOP, apc.getId(), ConstraintSet.TOP);
+
+                            constraintSet.connect(seatIcon.getId(), ConstraintSet.END, seatCountText.getId(), ConstraintSet.START);
+                            constraintSet.connect(seatIcon.getId(), ConstraintSet.TOP, apc.getId(), ConstraintSet.TOP);
+
+
+
+                            constraintSet.applyTo(buttonLayout);
+
+                            linear.addView(buttonLayout);
+                            // Check seat count and update button availability
+                            if (seatCount > 0) {
+                                // Enable the button
+                                apc.setOnClickListener(new View.OnClickListener() {
                                     @Override
-                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                        for (DataSnapshot seatSnapShot: snapshot.getChildren()){
-                                            if ("shuttleSeat".equals(seatSnapShot.getKey())){
-                                                shuttleSeat = seatSnapShot.getValue(String.class);
-                                            }
+                                    public void onClick(View v) {
+                                        // Get the selected shuttleUid
+                                        String selectedShuttleUid = shuttleUid;
 
-                                        }
-                                        ConstraintLayout.LayoutParams params = new ConstraintLayout.LayoutParams(
-                                                ConstraintLayout.LayoutParams.MATCH_PARENT,
-                                                ConstraintLayout.LayoutParams.WRAP_CONTENT);
-                                        params.topMargin = 55;
-
-                                        ConstraintLayout buttonLayout = new ConstraintLayout(ViewScheduleHostelActivity.this);
-                                        //buttonLayout.setOrientation(LinearLayout.HORIZONTAL);
-                                        buttonLayout.setLayoutParams(params);
-
-                                        // Create the button
-                                        AppCompatButton apc = new AppCompatButton(ViewScheduleHostelActivity.this);
-                                        apc.setLayoutParams(new ConstraintLayout.LayoutParams(
-                                                ConstraintLayout.LayoutParams.MATCH_PARENT,
-                                                ViewGroup.LayoutParams.MATCH_PARENT
-                                        ));
-                                        apc.setId(timeSnapShot.getKey().hashCode());
-                                        apc.setBackgroundResource(R.drawable.rounded_home_button_background); // 设置按钮背景
-                                        apc.setGravity(Gravity.START);
-                                        final int id_ = apc.getId();
-                                        apc.setTextColor(Color.BLACK);
-                                        apc.setPadding(40, 40, 0,0);
-                                        apc.setText(timeSnapShot.getKey());
-
-
-                                        // Create the seat icon
-                                        ImageView seatIcon = new ImageView(ViewScheduleHostelActivity.this);
-                                        seatIcon.setId(View.generateViewId());
-                                        seatIcon.setLayoutParams(new LinearLayout.LayoutParams(100,80));
-
-                                        seatIcon.setImageResource(R.drawable.seat); // 设置座位图标
-
-                                        // Create the seat count text
-                                        TextView seatCountText = new TextView(ViewScheduleHostelActivity.this);
-                                        seatCountText.setId(View.generateViewId());
-                                        seatCountText.setLayoutParams(new LinearLayout.LayoutParams(
-                                                LinearLayout.LayoutParams.WRAP_CONTENT,
-                                                LinearLayout.LayoutParams.WRAP_CONTENT));
-                                        seatCountText.setPadding(15, 40, 40, 0);
-                                        seatCountText.setText("Seats: " + shuttleSeat); // Set shuttleSeat value
-
-                                        // Add views to button layout
-                                        buttonLayout.addView(apc);
-                                        buttonLayout.addView(seatIcon);
-                                        buttonLayout.addView(seatCountText);
-
-                                        ConstraintSet constraintSet = new ConstraintSet();
-                                        constraintSet.clone(buttonLayout);
-                                        constraintSet.connect(seatCountText.getId(), ConstraintSet.END, apc.getId(), ConstraintSet.END);
-                                        constraintSet.connect(seatCountText.getId(), ConstraintSet.TOP, apc.getId(), ConstraintSet.TOP);
-
-                                        constraintSet.connect(seatIcon.getId(), ConstraintSet.END, seatCountText.getId(), ConstraintSet.START);
-                                        constraintSet.connect(seatIcon.getId(), ConstraintSet.TOP, apc.getId(), ConstraintSet.TOP);
-
-
-
-                                        constraintSet.applyTo(buttonLayout);
-
-                                        linear.addView(buttonLayout);
-                                        // Check seat count and update button availability
-                                        if (seatCount > 0) {
-                                            // Enable the button
-                                            apc.setOnClickListener(new View.OnClickListener() {
-                                                @Override
-                                                public void onClick(View v) {
-                                                    String selectedTime = timeSnapShot.getKey(); // Get the selected time from the button
-                                                    Intent intent = new Intent(ViewScheduleHostelActivity.this, AdminAssignHostelScheduleActivity.class);
-                                                    intent.putExtra("selectedTime", selectedTime); // Pass the selected time as an extra
-                                                    intent.putExtra("Date", date);
-                                                    intent.putExtra("Departure", departure);
-                                                    startActivity(intent);
-                                                }
-                                            });
-
-                                        } else {
-                                            // Disable the button
-                                            apc.setEnabled(false);
-                                        }
-
+                                        String selectedTime = timeSnapShot.getKey(); // Get the selected time from the button
+                                        Intent intent = new Intent(ViewScheduleHostelActivity.this, AdminAssignHostelScheduleActivity.class);
+                                        intent.putExtra("selectedTime", selectedTime); // Pass the selected time as an extra
+                                        intent.putExtra("Date", date);
+                                        intent.putExtra("Departure", departure);
+                                        intent.putExtra("selectedShuttleUid", selectedShuttleUid);
+                                        startActivity(intent);
                                     }
-
-                                    @Override
-                                    public void onCancelled(@NonNull DatabaseError error) {
-
-                                    }
-
                                 });
 
+                            } else {
+                                // Disable the button
+                                apc.setEnabled(false);
                             }
 
                         }
 
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
+                    }
 
-                        }
-                    });
+
 
 
 
