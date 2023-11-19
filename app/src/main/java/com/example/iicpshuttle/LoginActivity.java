@@ -2,6 +2,7 @@ package com.example.iicpshuttle;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,6 +26,10 @@ public class LoginActivity extends Activity {
     private EditText emailEditText, passwordEditText;
     private FirebaseAuth mAuth;
     private DatabaseReference databaseReference;
+
+    private static Object userData;
+
+    private static String userUID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,10 +81,10 @@ public class LoginActivity extends Activity {
             checkRole();
         }
     }
-
     private void checkRole(){
         databaseReference = FirebaseDatabase.getInstance("https://iicpshuttle-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Users");
         FirebaseUser mUser = mAuth.getCurrentUser();
+        userUID = mUser.getUid();
 
         databaseReference.child(mUser.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -89,16 +94,14 @@ public class LoginActivity extends Activity {
 
                     if (role != null){
                         if (role.equals("Student")){
+                            userData = snapshot.getValue(User.class);
                             Toast.makeText(LoginActivity.this, "User log in successfully", Toast.LENGTH_SHORT).show();
-
                             startActivity(new Intent(LoginActivity.this, HomeActivity.class));
                         } else if (role.equals("Admin")){
                             Toast.makeText(LoginActivity.this, "User log in successfully", Toast.LENGTH_SHORT).show();
-
                             startActivity(new Intent(LoginActivity.this, AdminHomePageActivity.class));
                         } else if (role.equals("Driver")) {
                             Toast.makeText(LoginActivity.this, "User log in successfully", Toast.LENGTH_SHORT).show();
-
                             startActivity(new Intent(LoginActivity.this, DriverHomePageActivity.class));
                         } else {
                             Toast.makeText(LoginActivity.this, "Role not found for this user", Toast.LENGTH_SHORT).show();
@@ -116,4 +119,8 @@ public class LoginActivity extends Activity {
         });
     }
 
+    public static Object getUserData(){
+        return userData;
+    }
+    public static String getUserUID(){return userUID;}
 }
