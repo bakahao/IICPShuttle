@@ -66,7 +66,6 @@ public class HomeActivity extends AppCompatActivity implements SwipeRefreshLayou
             startActivity(new Intent(HomeActivity.this, LoginActivity.class));
         });
 
-
         btnRequestShuttle = findViewById(R.id.button4);
         btnRequestShuttle.setOnClickListener(view -> {
             startActivity(new Intent(HomeActivity.this, RequestShuttleHomeActivity.class));
@@ -80,19 +79,7 @@ public class HomeActivity extends AppCompatActivity implements SwipeRefreshLayou
             }
         });
 
-
     }
-
-    public void onBookHostelShuttleClicked(View view){
-        Intent intent = new Intent(this, BookShuttleActivity.class);
-        intent.putExtra("Departure", "HostelShuttle");
-        startActivity(intent);
-    }
-
-    public void onBookCampusShuttleCLicked(View view){
-        Intent intent = new Intent(this, BookShuttleActivity.class);
-        intent.putExtra("Departure", "CampusShuttle");
-
 
     @Override
     public void onRefresh() {
@@ -198,7 +185,6 @@ public class HomeActivity extends AppCompatActivity implements SwipeRefreshLayou
     public void onBookHostelShuttleClicked(View view){
         Intent intent = new Intent(this, BookShuttleActivity.class);
         intent.putExtra("Departure", "HostelShuttle");
-
         startActivity(intent);
     }
 
