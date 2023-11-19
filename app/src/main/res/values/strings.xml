@@ -8,14 +8,15 @@
             <item>Sungai Ara - IICP</item>
             <item>Elite - IICP</item>
             <item>Golden Triangle - IICP</item>
-
         </string-array>
+
 
         <string-array name="departureCampus">
             <item>IICP - Sungai Ara</item>
             <item>IICP - Elite</item>
             <item>IICP - Golden Triangle</item>
         </string-array>
+
 
     <string-array name="departureRequestShuttle">
         <item>Sungai Ara - IICP</item>

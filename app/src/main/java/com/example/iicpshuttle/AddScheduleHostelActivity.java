@@ -54,7 +54,6 @@ public class AddScheduleHostelActivity extends AppCompatActivity {
     private Spinner dDepartureSpinner, wDepartureSpinner, dDriverSpinner, wDriverSpinner;
     private ArrayAdapter<CharSequence> adapter;
     private Map <String,String> driverMap, seatMap;
-
     private List<String> driver;
 
     @SuppressLint("MissingInflatedId")
@@ -151,7 +150,6 @@ public class AddScheduleHostelActivity extends AppCompatActivity {
                     //wLinear = findViewById(R.id.WeeklyContainer);
                     wLinear.setVisibility(View.VISIBLE);
                     dLinear.setVisibility(View.GONE);
-
                 }
             }
         });
@@ -242,7 +240,6 @@ public class AddScheduleHostelActivity extends AppCompatActivity {
             });
 
 
-        addScheduleButton.setOnClickListener(new View.OnClickListener() {
 
 
         ImageButton btnDatePicker = findViewById(R.id.DatePicker);
@@ -546,6 +543,10 @@ public class AddScheduleHostelActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
+
+
 
     }
 

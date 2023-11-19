@@ -39,7 +39,6 @@ public class ManageScheduleHostelActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String departure = intent.getStringExtra("Departure");
         linear = findViewById(R.id.buttonLayout);
-
         createButton(departure);
 
         buttonContainer = findViewById(R.id.buttonScheduleContainer);

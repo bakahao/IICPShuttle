@@ -21,7 +21,5 @@ public class Schedule {
         return shuttleDeparture;
     }
 
-
-
 }
 
