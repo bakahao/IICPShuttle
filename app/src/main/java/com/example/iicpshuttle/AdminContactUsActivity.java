@@ -47,6 +47,7 @@ public class AdminContactUsActivity extends AppCompatActivity {
 
         backIconImageView.setOnClickListener(v -> {
             Intent backIntent = new Intent(AdminContactUsActivity.this, AdminHomePageActivity.class);
+
             // Check if the user is signed in
             FirebaseUser currentUser = mAuth.getCurrentUser();
             if (currentUser != null) {
@@ -59,6 +60,7 @@ public class AdminContactUsActivity extends AppCompatActivity {
                 updateUserInformation(userUid, updatedEmail, updatedPhone);
             }
             //saveTextToFirebase(emailEditText, phoneEditText);
+
             saveTextToSharedPreferences(sharedPreferences, emailEditText, phoneEditText);
             startActivity(backIntent);
         });

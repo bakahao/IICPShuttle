@@ -25,20 +25,27 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import androidx.appcompat.app.AppCompatActivity;
+
+
 public class ViewScheduleHostelActivity extends AppCompatActivity {
     private String date, shuttleTime, shuttleUid, shuttleSeat;
     private String departure;
     private ImageView backViewSchedule;
     private LinearLayout linear;
     private int seatCount=10;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_schedule_hostel);
 
         // Initialize the backViewSchedule button and set an onClickListener
+
         backViewSchedule = findViewById(R.id.backViewSchedule);
         linear = findViewById(R.id.showButton);
 
@@ -46,6 +53,7 @@ public class ViewScheduleHostelActivity extends AppCompatActivity {
         date = intent.getStringExtra("Date");
         departure = intent.getStringExtra("Departure");
 
+        ImageView  backViewSchedule = findViewById(R.id.backViewSchedule);
         backViewSchedule.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -53,7 +61,6 @@ public class ViewScheduleHostelActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
 
         createButton();
 
@@ -181,5 +188,8 @@ public class ViewScheduleHostelActivity extends AppCompatActivity {
 
     }
 
+
+
+    }
 
 }

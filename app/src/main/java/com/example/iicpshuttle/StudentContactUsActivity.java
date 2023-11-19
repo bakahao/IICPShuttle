@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -30,6 +31,7 @@ public class StudentContactUsActivity extends AppCompatActivity {
         emailTextView.setText(userEmail); // replace the email to userEmail(textView)
         phoneTextView.setText(userPhone); // replace the phone to userEmail(textView)
 
+
         emailTextView.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,11 +51,13 @@ public class StudentContactUsActivity extends AppCompatActivity {
         }));
 
 
+
         backIconImageView.setOnClickListener(v -> {
             Intent backIntent = new Intent(StudentContactUsActivity.this, HomeActivity.class);
             startActivity(backIntent);
         });
     }
+
 
     private void gotoUrl(String s) {
         Uri uri = Uri.parse(s);
