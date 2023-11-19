@@ -21,11 +21,29 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.IICPShuttle"
-        tools:ignore="ObsoleteSdkInt"
-        tools:targetApi="31">
+        tools:targetApi="31"
+        tools:ignore="ObsoleteSdkInt">
+
+
+        <activity
+            android:name=".ViewScheduleHostelActivity"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".AdminAssignHostelScheduleActivity"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".StudentContactUsActivity"
+            android:exported="true">
+        </activity>
+
         <activity
             android:name=".DriverStudentListActivity"
             android:exported="true" />
+
         <activity
             android:name=".AdminContactUsActivity"
             android:exported="true" />
@@ -38,6 +56,31 @@
         <activity
             android:name=".AddScheduleHostelActivity"
             android:exported="true" />
+        <activity
+            android:name=".ManageScheduleHostelActivity"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".AddScheduleHostelActivity"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".ManageScheduleHostelActivity"
+            android:exported="true"
+            tools:ignore="DuplicateActivity">
+        </activity>
+
+
+
+        <activity
+            android:name=".AddScheduleHostelActivity"
+            android:exported="true"
+            tools:ignore="DuplicateActivity">
+
+        </activity>
+
         <activity
             android:name=".DriverHomePageActivity"
             android:exported="true">
