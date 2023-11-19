@@ -61,6 +61,16 @@ public class AvailableTimeActivity extends AppCompatActivity {
 
         createButton();
 
+        ImageView backToHome = findViewById(R.id.backToHome);
+
+        backToHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AvailableTimeActivity.this, BookShuttleActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     private void createButton(){
@@ -114,7 +124,6 @@ public class AvailableTimeActivity extends AppCompatActivity {
                     apc.setTextColor(Color.BLACK);
                     apc.setPadding(40, 40, 0,0);
                     apc.setText(timeSnapShot.getKey());
-
 
                     // Create the seat icon
                     ImageView shuttleIcon = new ImageView(AvailableTimeActivity.this);

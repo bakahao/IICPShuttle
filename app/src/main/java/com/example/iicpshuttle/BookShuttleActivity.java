@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -30,7 +31,6 @@ import java.util.Date;
 
 public class BookShuttleActivity extends AppCompatActivity {
 
-
     private LinearLayout linear;
     private ConstraintLayout constraintLayout;
     private int numberOfButtons;
@@ -53,6 +53,16 @@ public class BookShuttleActivity extends AppCompatActivity {
         String departure = intent.getStringExtra("Departure");
 
         createButton(departure);
+
+        ImageView backToHome = findViewById(R.id.backToHome);
+
+        backToHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(BookShuttleActivity.this, HomeActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 
@@ -89,7 +99,6 @@ public class BookShuttleActivity extends AppCompatActivity {
                                         LinearLayout.LayoutParams.MATCH_PARENT,
                                         LinearLayout.LayoutParams.WRAP_CONTENT);
                                 params.topMargin = 50;
-//
 
                                 AppCompatButton apc = new AppCompatButton(BookShuttleActivity.this);
                                 apc.setId(dateSnapshot.getKey().hashCode());
@@ -126,6 +135,7 @@ public class BookShuttleActivity extends AppCompatActivity {
             }
         });
     }
+
 
     private Date getThisWeekSaturday() {
         Calendar calendar = Calendar.getInstance();
