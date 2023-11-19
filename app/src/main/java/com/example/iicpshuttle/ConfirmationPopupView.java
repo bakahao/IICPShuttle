@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 
 public class ConfirmationPopupView extends LinearLayout {
 
@@ -42,8 +43,8 @@ public class ConfirmationPopupView extends LinearLayout {
     }
 
     public void setOnConfirmationListener(View.OnClickListener onYesClickListener, View.OnClickListener onNoClickListener) {
-        Button btnYes = findViewById(R.id.btnConfirm);
-        Button btnNo = findViewById(R.id.btnBack);
+        AppCompatButton btnYes = findViewById(R.id.btnConfirm);
+        AppCompatButton btnNo = findViewById(R.id.btnBack);
 
         btnYes.setOnClickListener(onYesClickListener);
         btnNo.setOnClickListener(onNoClickListener);

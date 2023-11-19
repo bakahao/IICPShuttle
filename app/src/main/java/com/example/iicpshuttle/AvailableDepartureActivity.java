@@ -155,7 +155,6 @@ public class AvailableDepartureActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         // Handle "Yes" button click
-                        // Implement your confirmation logic here
                         DatabaseReference db = FirebaseDatabase.getInstance("https://iicpshuttle-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference();
                         db.child("ShuttleSchedule").child(path).child(shuttleUID).addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
