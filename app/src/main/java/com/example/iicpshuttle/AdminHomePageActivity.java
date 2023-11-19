@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -35,8 +36,6 @@ public class AdminHomePageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_admin_homepage);
 
 
-
-
         AppCompatButton button5 = findViewById(R.id.button5);
         AppCompatButton buttonManageScheduleHostel = findViewById(R.id.buttonManageScheduleHostel);
 
@@ -49,6 +48,7 @@ public class AdminHomePageActivity extends AppCompatActivity {
         });
 
 
+        AppCompatButton button3 = findViewById(R.id.button3);
 
 
         AppCompatButton button4 = findViewById(R.id.button4);
@@ -77,6 +77,14 @@ public class AdminHomePageActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AdminHomePageActivity.this, DriverRegisterActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminHomePageActivity.this, AdminRequestShuttle.class);
                 startActivity(intent);
             }
         });
@@ -116,3 +124,7 @@ public class AdminHomePageActivity extends AppCompatActivity {
 
     }
 }
+
+
+
+
