@@ -37,20 +37,39 @@
         app:layout_constraintVertical_bias="0.0"
         tools:ignore="ContentDescription" />
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/inter_black"
-        android:text="Home"
-        android:textColor="#FFFFFF"
-        android:textSize="36sp"
-        app:layout_constraintBottom_toTopOf="@+id/whiteBackground"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="HardcodedText,MissingConstraints,TextContrastCheck,VisualLintBounds" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        tools:ignore="MissingConstraints">
 
+
+        <ImageView
+            android:id="@+id/backToHome"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="15dp"
+            android:src="@drawable/back"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="20dp"
+            tools:layout_editor_absoluteY="16dp" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:fontFamily="@font/inter_black"
+            android:text="Add Schedule"
+            android:textColor="#FFFFFF"
+            android:textSize="36sp"
+            app:layout_constraintBottom_toTopOf="@+id/whiteBackground"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="HardcodedText,MissingConstraints,TextContrastCheck,VisualLintBounds" />
+
+    </LinearLayout>>
 
     <LinearLayout
             android:layout_width="match_parent"
@@ -224,17 +243,17 @@
                         android:textStyle="bold"
                         android:visibility="visible" />
 
-                    <EditText
-                        android:id="@+id/DriverEditText"
+                    <Spinner
+                        android:id="@+id/dDriverSpinner"
                         android:layout_width="150dp"
                         android:layout_height="60dp"
-
                         android:background="@drawable/schedule_input"
                         android:hint=""
                         android:inputType="text"
                         android:minHeight="50dp"
                         android:textSize="25dp"
                         android:textStyle="bold"
+                        android:spinnerMode="dropdown"
                         android:visibility="visible" />
 
 
@@ -552,8 +571,8 @@
                             android:textStyle="bold"
                             android:visibility="visible" />
 
-                        <EditText
-                            android:id="@+id/wDriverEditText"
+                        <Spinner
+                            android:id="@+id/wDriverSpinner"
                             android:layout_width="150dp"
                             android:layout_height="60dp"
                             android:background="@drawable/schedule_input"
@@ -562,6 +581,7 @@
                             android:minHeight="50dp"
                             android:textSize="25dp"
                             android:textStyle="bold"
+                            android:spinnerMode="dropdown"
                             android:visibility="visible" />
 
 

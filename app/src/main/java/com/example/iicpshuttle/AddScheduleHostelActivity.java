@@ -1,20 +1,18 @@
 package com.example.iicpshuttle;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioGroup;
-import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.app.DatePickerDialog;
@@ -27,34 +25,37 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatButton;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.FirebaseApp;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class AddScheduleHostelActivity extends AppCompatActivity {
 
-
     private LinearLayout dLinear, wLinear;
     private RadioGroup dRadioGroup, wRadioGroup;
-    private EditText dateEditText, timeEditText, seatEditText, driverEditText, wSeatEditText, wTimeEditText;
+    private EditText dateEditText, timeEditText, seatEditText,  wSeatEditText, wTimeEditText;
     private EditText startDateEditText, endDateEditText, txtDate, txtTime;
     private TextView dateTextView, timeTextView, seatTextView, startDateTextView, endDateTextView, driverTextView;
     private ImageButton btnDatePicker, btnTimePicker, btnDatePicker1, btnDatePicker2, wBtnTimePicker;
     private int mYear, mMonth, mDay, mHour, mMinute, mAPM;
     private Calendar startCalendar, endCalendar;
-    private Spinner dDepartureSpinner, wDepartureSpinner;
+    private Spinner dDepartureSpinner, wDepartureSpinner, dDriverSpinner, wDriverSpinner;
     private ArrayAdapter<CharSequence> adapter;
+    private Map <String,String> driverMap, seatMap;
+
+    private List<String> driver;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -64,6 +65,7 @@ public class AddScheduleHostelActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String departure = intent.getStringExtra("Departure");
+
 
         dDepartureSpinner = findViewById(R.id.departureSpinner);
         wDepartureSpinner = findViewById(R.id.wDepartureSpinner);
@@ -78,6 +80,9 @@ public class AddScheduleHostelActivity extends AppCompatActivity {
         dDepartureSpinner.setAdapter(adapter);
         wDepartureSpinner.setAdapter(adapter);
 
+        dDriverSpinner = findViewById(R.id.dDriverSpinner);
+        wDriverSpinner = findViewById(R.id.wDriverSpinner);
+
         // Find the UI components
         dRadioGroup = findViewById(R.id.RadioButton);
         wRadioGroup = findViewById(R.id.wRadioButton);
@@ -88,7 +93,6 @@ public class AddScheduleHostelActivity extends AppCompatActivity {
         wSeatEditText = findViewById(R.id.wSeatEditText);
         startDateEditText = findViewById(R.id.wStartDate);
         endDateEditText = findViewById(R.id.wEndDate);
-        driverEditText = findViewById(R.id.DriverEditText);
         dateTextView = findViewById(R.id.date);
         timeTextView = findViewById(R.id.time);
         seatTextView = findViewById(R.id.seattext);
@@ -97,7 +101,6 @@ public class AddScheduleHostelActivity extends AppCompatActivity {
         driverTextView = findViewById(R.id.drivertext);
         dLinear = findViewById(R.id.DailyContainer);
         wLinear = findViewById(R.id.WeeklyContainer);
-
 
         // Find the date picker and time picker UI components
         btnDatePicker = (ImageButton) findViewById(R.id.DatePicker);
@@ -152,9 +155,7 @@ public class AddScheduleHostelActivity extends AppCompatActivity {
                 }
             }
         });
-
-
-
+        
         Button addButton = findViewById(R.id.AddButton);
         Button wAddButton = findViewById(R.id.wAddButton);
         addButton.setOnClickListener(new OnClickListener() {
@@ -164,13 +165,15 @@ public class AddScheduleHostelActivity extends AppCompatActivity {
                 String date = dateEditText.getText().toString();
                 String time = timeEditText.getText().toString();
                 String seat = seatEditText.getText().toString();
+                String driver = dDriverSpinner.getSelectedItem().toString();
                 String departureSpin = dDepartureSpinner.getSelectedItem().toString();
 
-                Shuttle shuttle = new Shuttle("driver", departureSpin, seat, "carPLate", false, date, time);
+                
+                Shuttle shuttle = new Shuttle(driver, departureSpin, seat, "carPlate",  date, time);
 
-                DatabaseReference db = FirebaseDatabase.getInstance("https://iicpshuttle-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("ShuttleSchedule");
+                DatabaseReference db = FirebaseDatabase.getInstance("https://iicpshuttle-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference();
                 String uniqKey = db.push().getKey();
-                db.child(departure).child(date).child(time).child(uniqKey).setValue(shuttle).addOnCompleteListener(new OnCompleteListener<Void>() {
+                db.child("ShuttleSchedule").child(departure).child(date).child(time).child(uniqKey).setValue(shuttle).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
@@ -180,8 +183,11 @@ public class AddScheduleHostelActivity extends AppCompatActivity {
                         }
                     }
                 });
+
+                DriverShuttleSchedule drivers = new DriverShuttleSchedule(date, time, departureSpin, seat);
+                db.child("DriverSchedule").child(driverMap.get(driver)).child("ShuttleList").child(uniqKey).setValue(drivers);
             }
-                });
+        });
 
 
         wAddButton.setOnClickListener(new OnClickListener() {
@@ -192,16 +198,16 @@ public class AddScheduleHostelActivity extends AppCompatActivity {
                     String time = wTimeEditText.getText().toString();
                     String seat = wSeatEditText.getText().toString();
                     String departureSpin = wDepartureSpinner.getSelectedItem().toString();
+                    String driver = wDriverSpinner.getSelectedItem().toString();
 
+                    DatabaseReference db = FirebaseDatabase.getInstance("https://iicpshuttle-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference();
 
-
-                    DatabaseReference db = FirebaseDatabase.getInstance("https://iicpshuttle-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("ShuttleSchedule");
-                    String uniqKey = db.push().getKey();
 
                     // Add your weekly logic here
                     SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
                     Calendar startCalendar = Calendar.getInstance();
                     Calendar endCalendar = Calendar.getInstance();
+                    Calendar currentDate = Calendar.getInstance();
                     try {
                         startCalendar.setTime(sdf.parse(startDate));
                         endCalendar.setTime(sdf.parse(endDate));
@@ -210,23 +216,25 @@ public class AddScheduleHostelActivity extends AppCompatActivity {
                     }
 
                     // Iterate through the days in the date range
-                    while (!startCalendar.after(endCalendar)) {
+                    while (!startCalendar.after(endCalendar) && !startCalendar.before(currentDate)) {
                         // Check if the current day is not Saturday (Calendar.SATURDAY) and not Sunday (Calendar.SUNDAY)
                         if (startCalendar.get(Calendar.DAY_OF_WEEK) != Calendar.SATURDAY && startCalendar.get(Calendar.DAY_OF_WEEK) != Calendar.SUNDAY) {
                             String formattedDay = sdf.format(startCalendar.getTime());
-                            Shuttle shuttle = new Shuttle("driver", departureSpin, seat, "carPLate", false, formattedDay, time);
+                            String uniqKey = db.push().getKey();
+                            Shuttle shuttle = new Shuttle(driver, departureSpin, seat, "carPlate",  formattedDay, time);
                             // Store data for each day, including date, time, and seat
-                            db.child(departure).child(formattedDay).child(time).child(uniqKey).child(seat).setValue(shuttle).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            db.child("ShuttleSchedule").child(departure).child(formattedDay).child(time).child(uniqKey).setValue(shuttle).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     Toast.makeText(AddScheduleHostelActivity.this, "Added successfully", Toast.LENGTH_SHORT).show();
                                 }
                             });
+                            DriverShuttleSchedule drivers = new DriverShuttleSchedule(formattedDay, time, departureSpin, seat);
+                            db.child("DriverSchedule").child(driverMap.get(driver)).child("ShuttleList").child(uniqKey).setValue(drivers);
                         }
                         // Move to the next day
                         startCalendar.add(Calendar.DATE, 1);
                     }
-
 
                     Toast.makeText(AddScheduleHostelActivity.this, "Added successfully", Toast.LENGTH_SHORT).show();
                 }
@@ -434,6 +442,112 @@ public class AddScheduleHostelActivity extends AppCompatActivity {
                 datePickerDialog.show();
             }
         });
+
+        dDriverSpinner = findViewById(R.id.dDriverSpinner);
+        wDriverSpinner = findViewById(R.id.wDriverSpinner);
+
+        // Assuming you have Firebase Auth initialized, get the currently logged-in user
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+
+
+        // Assuming the database reference to Drivers node
+        DatabaseReference db = FirebaseDatabase.getInstance("https://iicpshuttle-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference();
+        seatMap = new HashMap<>();
+        db.child("DriverShuttleSchedule").addListenerForSingleValueEvent(new ValueEventListener() {
+
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot driverSnapshot : snapshot.getChildren()){
+                    seatMap.put(driverSnapshot.getKey(),driverSnapshot.child("Shuttle").child("MaximumSeat").getValue(String.class));
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        db.child("Users").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                driver = new ArrayList<>();
+                driverMap = new HashMap<>();
+
+
+                for (String uid: seatMap.keySet()) {
+                    DataSnapshot userSnapshot = dataSnapshot.child(uid);
+                    String userKey = userSnapshot.getKey(); // Retrieve the unique key for each driver
+
+                    // Fetch the userRole directly from the userSnapshot
+                    String userRole = userSnapshot.child("userRole").getValue(String.class);
+
+                    // Compare userRole to "DriverShuttleSchedule"
+
+                    // If the userRole is "DriverShuttleSchedule", add the corresponding value to the list
+                    String drivers = userSnapshot.child("userName").getValue(String.class);
+                    driver.add(drivers);
+                    driverMap.put(drivers,userSnapshot.getKey());
+
+
+                }
+
+                // Assuming dDriverSpinner is your Spinner in the activity layout
+                ArrayAdapter<String> adapter = new ArrayAdapter<>(AddScheduleHostelActivity.this, android.R.layout.simple_spinner_item, driver);
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                dDriverSpinner.setAdapter(adapter);
+                wDriverSpinner.setAdapter(adapter);
+
+            }
+
+
+
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Handle an error in fetching data
+            }
+        });
+
+        dDriverSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String name = driver.get(position);
+                String uid = driverMap.get(name);
+                seatEditText.setText(seatMap.get(uid));
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        wDriverSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String name = driver.get(position);
+                String uid = driverMap.get(name);
+                wSeatEditText.setText(seatMap.get(uid));
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        ImageView backToHome = findViewById(R.id.backToHome);
+
+        backToHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AddScheduleHostelActivity.this, ManageScheduleHostelActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+
 
 
     }
