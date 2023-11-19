@@ -1,26 +1,25 @@
 package com.example.iicpshuttle;
 
 public class Schedule {
-    private String date;
-    private String time;
-    private String seat;
+    private String shuttleDate;
+    private String shuttleTime;
+    private String shuttleDeparture;
 
 
-
-
-    public Schedule(String date, String time, String seat ) {
-        this.date = date;
-        this.time = time;
-        this.seat = seat;
-
-
+    public Schedule() {
     }
 
-    public String getScheduleDate() {return date;}
-    public String getScheduleTime() {return time;}
-    public String getScheduleSeat() {return seat;}
+    public String getShuttleDate() {
+        return shuttleDate;
+    }
 
+    public String getShuttleTime() {
+        return shuttleTime;
+    }
 
-
+    public String getShuttleDeparture() {
+        return shuttleDeparture;
+    }
 
 }
+
