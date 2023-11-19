@@ -60,6 +60,23 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:ignore="SpeakableTextPresentCheck">
+
+                <LinearLayout
+                    android:id="@+id/showButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:orientation="vertical">
+
+                </LinearLayout>
+            </ScrollView>
                 android:src="@drawable/inti_background" />
 
             <FrameLayout

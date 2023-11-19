@@ -2,6 +2,9 @@ package com.example.iicpshuttle;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
+import android.os.Bundle;
+import android.view.View;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -29,9 +32,35 @@ public class StudentContactUsActivity extends AppCompatActivity {
         phoneTextView.setText(userPhone); // replace the phone to userEmail(textView)
 
 
+        emailTextView.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gotoUrl("https://mail.google.com/mail/u/0/?ogbl#inbox?compose=new");
+            }
+        }));
+
+        phoneTextView.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String phone;
+                phone = phoneTextView.getText().toString().trim();
+
+                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + Uri.encode(phone)));
+                startActivity(intent);
+            }
+        }));
+
+
+
         backIconImageView.setOnClickListener(v -> {
             Intent backIntent = new Intent(StudentContactUsActivity.this, HomeActivity.class);
             startActivity(backIntent);
         });
+    }
+
+
+    private void gotoUrl(String s) {
+        Uri uri = Uri.parse(s);
+        startActivity(new Intent(Intent.ACTION_VIEW, uri));
     }
 }

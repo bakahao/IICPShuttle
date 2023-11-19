@@ -4,7 +4,6 @@
     <string name="login">Login</string>
     <string name="seat_icon_description">Seat Icon - Indicates available seats</string>
 
-
         <string-array name="departureHostel">
             <item>Sungai Ara - IICP</item>
             <item>Elite - IICP</item>
@@ -16,7 +15,6 @@
             <item>IICP - Elite</item>
             <item>IICP - Golden Triangle</item>
         </string-array>
-
 
     <string-array name="departureRequestShuttle">
         <item>Sungai Ara - IICP</item>
