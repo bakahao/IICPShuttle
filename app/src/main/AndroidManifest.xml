@@ -2,10 +2,16 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         tools:ignore="ScopedStorage" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
         tools:ignore="ScopedStorage" />
+
+    <uses-permission android:name="android.permission.CAMERA"/>
 
     <application
         android:allowBackup="true"
@@ -39,10 +45,70 @@
         <activity
             android:name=".AddScheduleHostelActivity"
             android:exported="true" />
+
+        <activity
+            android:name=".ViewScheduleHostelActivity"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".AdminAssignHostelScheduleActivity"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".StudentContactUsActivity"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".DriverStudentListActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".AdminContactUsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ManageScheduleHostelActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ViewScheduleHostelActivity"
+            android:exported="true" />
+        <activity
+            android:name=".AddScheduleHostelActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ManageScheduleHostelActivity"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".AddScheduleHostelActivity"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".ManageScheduleHostelActivity"
+            android:exported="true"
+            tools:ignore="DuplicateActivity">
+        </activity>
+
+        <activity
+            android:name=".AddScheduleHostelActivity"
+            android:exported="true"
+            tools:ignore="DuplicateActivity">
+        </activity>
+
         <activity
             android:name=".DriverHomePageActivity"
             android:exported="true">
         </activity>
+
+        <activity android:name=".DriverScannerActivity"
+            android:screenOrientation="portrait"
+            android:stateNotNeeded="true"
+            android:theme="@style/zxing_CaptureTheme"/>
+
 
         <activity
             android:name=".AdminHomePageActivity"
@@ -59,6 +125,14 @@
 
         <activity
             android:name=".AvailableTimeActivity"
+            android:exported="true">
+        </activity>
+
+        <activity android:name=".ConfirmationPopupView"
+            android:exported="true">
+        </activity>
+
+        <activity android:name=".AvailableDepartureActivity"
             android:exported="true">
         </activity>
 
@@ -88,11 +162,6 @@
         </activity>
 
         <activity
-            android:name="ConfirmationActivity"
-            android:exported="true">
-        </activity>
-
-        <activity
             android:name="AdminRequestShuttle"
             android:exported="true">
         </activity>
@@ -103,7 +172,7 @@
         </activity>
 
         <activity
-            android:name=".DriverRegisterActivity"
+            android:name=".LoginActivity"
             android:exported="true">
 
 

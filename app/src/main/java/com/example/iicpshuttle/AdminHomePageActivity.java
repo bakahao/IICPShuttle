@@ -38,6 +38,7 @@ public class AdminHomePageActivity extends AppCompatActivity {
 
         AppCompatButton button5 = findViewById(R.id.button5);
         AppCompatButton buttonManageScheduleHostel = findViewById(R.id.buttonManageScheduleHostel);
+        AppCompatButton buttonManageScheduleCampus = findViewById(R.id.buttonManageScheduleCampus);
 
         mAuth = FirebaseAuth.getInstance();
         btnLogout = findViewById(R.id.button6);
@@ -48,10 +49,12 @@ public class AdminHomePageActivity extends AppCompatActivity {
         });
 
 
+
         AppCompatButton button3 = findViewById(R.id.button3);
 
 
         AppCompatButton button4 = findViewById(R.id.button4);
+
 
         button5.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,10 +70,10 @@ public class AdminHomePageActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AdminHomePageActivity.this, ManageScheduleHostelActivity.class);
+                intent.putExtra("Departure", "HostelShuttle");
                 startActivity(intent);
             }
         });
-
 
 
         button4.setOnClickListener(new View.OnClickListener() {
@@ -85,6 +88,11 @@ public class AdminHomePageActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AdminHomePageActivity.this, AdminRequestShuttle.class);
+        buttonManageScheduleCampus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminHomePageActivity.this, ManageScheduleHostelActivity.class);
+                intent.putExtra("Departure", "CampusShuttle");
                 startActivity(intent);
             }
         });

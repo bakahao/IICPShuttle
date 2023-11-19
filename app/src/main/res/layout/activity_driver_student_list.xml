@@ -27,6 +27,17 @@
         tools:ignore="MissingConstraints,VisualLintBounds,TouchTargetSizeCheck" />
 
 
+    <ImageView
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/qr_scan"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:id="@+id/scanQR"
+        tools:ignore="MissingConstraints" />
+
     <View
         android:id="@+id/whiteBackground"
         android:layout_width="match_parent"

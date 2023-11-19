@@ -111,6 +111,12 @@ public class DriverScheduleActivity extends AppCompatActivity {
 
         Log.d("ShuttleId", "Retrieved Shuttle ID: " + shuttleId);
 
+
+        // Other styling if needed
+        button.setPadding(20, 20, 20, 20);
+
+        Log.d("ShuttleId", "Retrieved Shuttle ID: " + shuttleId);
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -119,6 +125,14 @@ public class DriverScheduleActivity extends AppCompatActivity {
                 // Use the shuttleId obtained from the method parameters
                 Intent intent = new Intent(DriverScheduleActivity.this, DriverStudentListActivity.class);
                 intent.putExtra("shuttleId", shuttleId);
+
+                String path;
+                if (schedule.getShuttleDeparture().startsWith("IICP")){
+                    path = "CampusShuttle" + "/" +schedule.getShuttleDate() + "/" + schedule.getShuttleTime();
+                } else {
+                    path = "HostelShuttle" + "/" +schedule.getShuttleDate() + "/" + schedule.getShuttleTime();
+                }
+                intent.putExtra("path", path);
                 startActivity(intent);
             }
         });

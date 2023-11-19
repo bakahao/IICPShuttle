@@ -50,7 +50,7 @@
         tools:ignore="HardcodedText,MissingConstraints,TextContrastCheck,VisualLintBounds" />
 
     <LinearLayout
-        android:id="@+id/driverTimeLayout"
+        android:id="@+id/studentAvailableTimeLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"

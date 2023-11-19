@@ -63,7 +63,7 @@
 
     <View
         android:id="@+id/view"
-        android:layout_width="378dp"
+        android:layout_width="match_parent"
         android:layout_height="71dp"
         android:layout_marginTop="60dp"
         android:layout_marginEnd="16dp"
@@ -146,3 +146,4 @@
         tools:ignore="ContentDescription,HardcodedText,MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
