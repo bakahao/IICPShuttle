@@ -37,7 +37,7 @@ public class RequestShuttleHomeActivity extends AppCompatActivity implements Swi
         setContentView(R.layout.activity_request_shuttle_home);
 
         requestShuttle = findViewById(R.id.button1);
-        swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
+        swipeRefreshLayout = findViewById(R.id.reqSwipeRefreshLayout);
         reminderLayout = findViewById(R.id.reminderLinearLayout);
 
         requestShuttle.setOnClickListener(view -> {

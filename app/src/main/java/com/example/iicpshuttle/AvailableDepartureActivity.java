@@ -46,6 +46,16 @@ public class AvailableDepartureActivity extends AppCompatActivity {
         path = intent.getStringExtra("path");
 
         createButton();
+
+        ImageView backToHome = findViewById(R.id.backToHome);
+
+        backToHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AvailableDepartureActivity.this, AvailableTimeActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void createButton(){
@@ -180,6 +190,8 @@ public class AvailableDepartureActivity extends AppCompatActivity {
 
                             Toast.makeText(AvailableDepartureActivity.this, "Confirmed", Toast.LENGTH_SHORT).show();
                             popupWindow.dismiss();
+                            Intent intent = new Intent(AvailableDepartureActivity.this, HomeActivity.class);
+                            startActivity(intent);
                         } catch (ParseException e) {
                             throw new RuntimeException(e);
                         }
@@ -190,7 +202,9 @@ public class AvailableDepartureActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         // Handle "No" button click
                         Toast.makeText(AvailableDepartureActivity.this, "Canceled", Toast.LENGTH_SHORT).show();
+
                         popupWindow.dismiss();
+
                     }
                 }
         );

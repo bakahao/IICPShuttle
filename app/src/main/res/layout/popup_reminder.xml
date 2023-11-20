@@ -6,11 +6,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:background="@drawable/login_rounded_background"
+        android:background="@color/white"
         android:gravity="center_horizontal"
         android:orientation="vertical"
         android:padding="20dp">
-
 
         <TextView
             android:id="@+id/dateTextView"
@@ -33,7 +32,6 @@
             android:textColor="@color/black"
             android:textSize="20sp" />
 
-
         <TextView
             android:id="@+id/departureTextView"
             android:layout_width="match_parent"
@@ -43,7 +41,6 @@
             android:text="Departure:"
             android:textColor="@color/black"
             android:textSize="20sp" />
-
 
         <TextView
             android:id="@+id/attendanceTextView"
@@ -77,8 +74,9 @@
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
                 android:layout_weight="1"
-                android:background="@drawable/register_button_background"
-                android:text="Remove" />
+                android:background="@drawable/login_button_background"
+                android:text="Remove"
+                android:textColor="#FFFFFF" />
 
         </LinearLayout>
 
@@ -86,11 +84,12 @@
             android:id="@+id/btnBack"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/login_rounded_background"
-            android:text="Back"
-            android:layout_marginTop="10dp"
             android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"/>
-    </LinearLayout>
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/login_rounded_background"
+            android:text="Back" />
+
+    </LinearLayout>>
 
 </RelativeLayout>

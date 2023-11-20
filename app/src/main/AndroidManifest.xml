@@ -11,7 +11,6 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
         tools:ignore="ScopedStorage" />
     <uses-permission android:name="android.permission.CAMERA"/>
-
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -23,21 +22,36 @@
         android:theme="@style/Theme.IICPShuttle"
         tools:ignore="ObsoleteSdkInt"
         tools:targetApi="31">
+
         <activity
             android:name=".DriverStudentListActivity"
+            android:exported="true" />
+        <activity
+            android:name=".DriverRegisterDetails"
             android:exported="true" />
         <activity
             android:name=".AdminContactUsActivity"
             android:exported="true" />
         <activity
-            android:name=".ManageScheduleHostelActivity"
+            android:name=".ManageScheduleActivity"
             android:exported="true" />
         <activity
-            android:name=".ViewScheduleHostelActivity"
+            android:name=".ViewScheduleActivity"
             android:exported="true" />
         <activity
-            android:name=".AddScheduleHostelActivity"
+            android:name=".AddScheduleActivity"
             android:exported="true" />
+
+        <activity
+            android:name=".AdminAssignScheduleActivity"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".StudentContactUsActivity"
+            android:exported="true">
+        </activity>
+
         <activity
             android:name=".DriverHomePageActivity"
             android:exported="true">
@@ -74,12 +88,16 @@
             android:exported="true">
         </activity>
 
+        <activity android:name=".DriverRegisterActivity"
+            android:exported="true">
+        </activity>
+
         <activity
             android:name=".ScanMeActivity"
             android:exported="true"></activity>
 
         <activity
-            android:name="BookShuttleActivity"
+            android:name=".BookShuttleActivity"
             android:exported="true"></activity>
 
         <activity android:name=".RequestShuttleActivity"
@@ -94,19 +112,20 @@
         </activity>
 
         <activity
-            android:name=".DriverTimeActivity"
+            android:name=".AdminRequestShuttle"
             android:exported="true">
-
         </activity>
 
         <activity
+            android:name=".AddRequestShuttle"
+            android:exported="true">
+        </activity>
+          
+        <activity
             android:name=".LoginActivity"
             android:exported="true">
-
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

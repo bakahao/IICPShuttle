@@ -2,11 +2,26 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/drivertime"
+    android:id="@+id/hello"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#DC0D15">
 
+    <ImageView
+        android:id="@+id/iconImageView"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:importantForAccessibility="no"
+        android:onClick="onIconClick"
+        android:src="@drawable/return_icon"
+        app:layout_constraintBottom_toTopOf="@+id/whiteBackground"
+        app:layout_constraintHorizontal_bias="0.222"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.504"
+        tools:ignore="MissingConstraints,VisualLintBounds,TouchTargetSizeCheck" />
 
     <View
         android:id="@+id/whiteBackground"
@@ -17,24 +32,27 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.5"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.571"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
         tools:ignore="VisualLintBounds" />
 
+
+
+
     <ImageView
         android:id="@+id/backgroundImage"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="190dp"
+        android:layout_height="524dp"
         android:alpha="0.1"
         android:src="@drawable/inti_logo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.647"
         tools:ignore="ContentDescription" />
 
     <TextView
@@ -42,7 +60,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/inter_black"
-        android:text="Home"
+        android:text="Arrange Shuttle"
         android:textColor="#FFFFFF"
         android:textSize="36sp"
         app:layout_constraintBottom_toTopOf="@+id/whiteBackground"
@@ -51,24 +69,37 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="HardcodedText,MissingConstraints,TextContrastCheck,VisualLintBounds" />
 
-
-    <LinearLayout
-        android:id="@+id/buttonLayout"
+    <ImageView
+        android:id="@+id/backgroundImage1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
+        android:alpha="0.1"
+        android:src="@drawable/inti_logo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="ContentDescription" />
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_marginTop="55dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        tools:ignore="ExtraText,MissingConstraints">
+        android:layout_marginRight="20dp">
+
+        <LinearLayout
+            android:id="@+id/buttonLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:ignore="MissingConstraints">
 
 
-    </LinearLayout>
-
-
-
-
-
-
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -30,8 +30,8 @@ public class DriverStudentListAdapter extends RecyclerView.Adapter<DriverStudent
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        User studentListDetails = list.get(position);
 
+        User studentListDetails = list.get(position);
         if (studentListDetails != null) {
             try {
                 // Convert Long to String before setting it in the TextView
@@ -54,13 +54,12 @@ public class DriverStudentListAdapter extends RecyclerView.Adapter<DriverStudent
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView studentID, userName, email;
+        TextView studentID, userName;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             studentID = itemView.findViewById(R.id.studentID);
             userName = itemView.findViewById((R.id.userName));
-            //email = itemView.findViewById((R.id.email));
         }
     }
 }
