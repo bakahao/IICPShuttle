@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#D50606"
-    tools:context=".ManageScheduleHostelActivity$MainActivity">
+    tools:context=".ManageScheduleActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,19 +19,15 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="23dp"
+            android:layout_marginRight="14dp"
             android:layout_marginBottom="8dp">
 
             <ImageView
+                android:id="@+id/backViewSchedule"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:src="@drawable/back"
-                android:layout_marginRight="320dp"/>
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/add_symbol"
-                android:layout_marginLeft="350dp"
+                android:layout_marginRight="320dp"
                 tools:ignore="RtlHardcoded" />
 
             <TextView
@@ -39,7 +35,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Schedule"
+                android:layout_marginLeft="14dp"
+                android:text="Available Time"
                 android:textColor="#ffffff"
                 android:textSize="33dp"
                 android:textStyle="bold" />
@@ -63,26 +60,24 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/inti_background" />
+                />
 
-            <FrameLayout
-                android:id="@+id/innerContainer"
-                android:layout_width="350dp"
-                android:layout_height="600dp"
-                android:layout_gravity="center"
-                android:elevation="4dp">
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:ignore="SpeakableTextPresentCheck">
 
-                <View
-                    android:id="@+id/myRectangle2"
+                <LinearLayout
+                    android:id="@+id/showButton"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:alpha="0.8"
-                    android:outlineProvider="background" />
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:orientation="vertical">
 
+                </LinearLayout>
+            </ScrollView>
 
-
-            </FrameLayout>
 
         </FrameLayout>
 

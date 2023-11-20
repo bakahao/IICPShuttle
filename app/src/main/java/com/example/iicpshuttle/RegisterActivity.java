@@ -21,9 +21,9 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    private EditText nameEditText, emailEditText, passwordEditText, phoneEditText;
+    private EditText nameEditText, emailEditText, passwordEditText, phoneEditText, studentIDEditText;
     private Button registerButton;
-    private TextView nameErrorTextView, studentIdErrorTextView, passwordErrorTextView, phoneErrorTextView;
+    private TextView nameErrorTextView, studentIdErrorTextView, passwordErrorTextView, phoneErrorTextView, emailErrorTextView;
     FirebaseAuth mAuth;
 
     @Override
@@ -46,18 +46,20 @@ public class RegisterActivity extends AppCompatActivity {
         emailEditText = findViewById(R.id.emailEditText);
         passwordEditText = findViewById(R.id.passwordEditText);
         phoneEditText = findViewById(R.id.phoneEditText);
-
+        studentIDEditText = findViewById(R.id.studentIDEditText);
 
         nameErrorTextView = findViewById(R.id.nameErrorTextView);
         studentIdErrorTextView = findViewById(R.id.studentIdErrorTextView);
         passwordErrorTextView = findViewById(R.id.passwordErrorTextView);
         phoneErrorTextView = findViewById(R.id.phoneErrorTextView);
+        emailErrorTextView = findViewById(R.id.emailErrorTextView);
 
         // 获取用户输入
         String name = nameEditText.getText().toString().trim();
         String email = emailEditText.getText().toString().trim();
         String password = passwordEditText.getText().toString().trim();
         String phoneNumber = phoneEditText.getText().toString().trim();
+        String studentID = studentIDEditText.getText().toString().trim().toUpperCase();
         if (name.isEmpty() || email.isEmpty() || password.isEmpty() || phoneNumber.isEmpty()) {
             if (name.isEmpty()) {
                 nameErrorTextView.setVisibility(View.VISIBLE);
@@ -66,6 +68,12 @@ public class RegisterActivity extends AppCompatActivity {
             }
 
             if (email.isEmpty()) {
+                emailErrorTextView.setVisibility(View.VISIBLE);
+            } else {
+                emailErrorTextView.setVisibility(View.GONE);
+            }
+
+            if (studentID.isEmpty()){
                 studentIdErrorTextView.setVisibility(View.VISIBLE);
             } else {
                 studentIdErrorTextView.setVisibility(View.GONE);
@@ -87,7 +95,7 @@ public class RegisterActivity extends AppCompatActivity {
         }
 
         String role = "Student";
-        User user = new User(name, role, email, phoneNumber);
+        User user = new User(name, role, email, phoneNumber, studentID);
 
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override

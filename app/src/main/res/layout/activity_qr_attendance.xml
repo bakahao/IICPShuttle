@@ -49,6 +49,19 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="HardcodedText,MissingConstraints,TextContrastCheck,VisualLintBounds" />
 
+    <ImageView
+        android:id="@+id/backIconImageView"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:contentDescription="TODO"
+        android:src="@drawable/back"
+        android:layout_marginStart="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView1"
+        app:layout_constraintBottom_toBottomOf="@+id/textView1"
+        tools:ignore="ContentDescription,HardcodedText,MissingConstraints" />
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -58,8 +71,8 @@
 
         <ImageView
             android:id="@+id/qrCodeImageView"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/textView1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -75,16 +88,18 @@
             android:id="@+id/name"
             android:text="Name"
             android:fontFamily="@font/inter_medium"
-            android:textSize="20dp"/>
+            android:textColor="@color/black"
+            android:textSize="24dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:id="@+id/email"
-            android:text="Name"
+            android:id="@+id/studentID"
+            android:text="student id"
             android:fontFamily="@font/inter_medium"
-            android:textSize="20dp"/>
+            android:textColor="@color/black"
+            android:textSize="24dp"/>
 
 
     </LinearLayout>

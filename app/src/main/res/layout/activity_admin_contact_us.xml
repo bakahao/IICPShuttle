@@ -63,20 +63,22 @@
 
     <View
         android:id="@+id/view"
-        android:layout_width="378dp"
+        android:layout_width="match_parent"
         android:layout_height="71dp"
         android:layout_marginTop="60dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:background="@drawable/rounded_home_button_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/whiteBackground" />
 
     <EditText
         android:id="@+id/emailEditText_contact"
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="28dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginEnd="50dp"
         android:autofillHints=""
         android:hint="Enter Email"
         android:inputType="text"
@@ -104,10 +106,11 @@
 
     <View
         android:id="@+id/view2"
-        android:layout_width="378dp"
+        android:layout_width="match_parent"
         android:layout_height="71dp"
-        android:layout_marginTop="164dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:background="@drawable/rounded_home_button_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/whiteBackground" />
@@ -115,10 +118,11 @@
     <EditText
 
         android:id="@+id/phoneEditText_contact"
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
-        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginEnd="50dp"
         android:autofillHints=""
         android:hint="Enter Phone Number"
         android:inputType="text"
@@ -146,3 +150,4 @@
         tools:ignore="ContentDescription,HardcodedText,MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+

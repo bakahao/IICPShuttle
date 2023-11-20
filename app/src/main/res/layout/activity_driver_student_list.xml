@@ -5,8 +5,37 @@
     android:id="@+id/drivertime"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#DC0D15">
+    android:background="#DC0D15"
+    tools:context=".DriverStudentListActivity">
 
+    <ImageView
+        android:id="@+id/iconImageView"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginRight="20dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:importantForAccessibility="no"
+        android:onClick="onIconClick"
+        android:src="@drawable/return_icon"
+        app:layout_constraintBottom_toTopOf="@+id/whiteBackground"
+        app:layout_constraintEnd_toStartOf="@+id/textView1"
+        app:layout_constraintHorizontal_bias="0.222"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.504"
+        tools:ignore="MissingConstraints,VisualLintBounds,TouchTargetSizeCheck" />
+
+    <ImageView
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/qr_scan"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:id="@+id/scanQR"
+        tools:ignore="MissingConstraints" />
 
     <View
         android:id="@+id/whiteBackground"
@@ -42,7 +71,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/inter_black"
-        android:text="Home"
+        android:text="Student List"
         android:textColor="#FFFFFF"
         android:textSize="36sp"
         app:layout_constraintBottom_toTopOf="@+id/whiteBackground"
@@ -62,13 +91,19 @@
         android:layout_marginRight="20dp"
         tools:ignore="ExtraText,MissingConstraints">
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/RecyclerViewStudentList"
+            android:layout_width="match_parent"
+            android:layout_height="637dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
 
     </LinearLayout>
-
-
-
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
