@@ -65,7 +65,7 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/button1"
-                android:onClick="onAttendanceHostelCLick"
+                android:onClick="onAttendanceHostelClick"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/rounded_home_button_background"
@@ -103,14 +103,14 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/button2"
-                android:onClick="onAttendanceHostelCLick"
+                android:onClick="onAttendanceCampusClick"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/rounded_home_button_background"
                 android:fontFamily="@font/inter_medium"
                 android:gravity="start|center_vertical"
                 android:paddingStart="60dp"
-                android:text="Attendance (Hostel)"
+                android:text="Attendance (Campus)"
                 android:textColor="#000000"
                 app:layout_constraintEnd_toEndOf="parent"
                 tools:ignore="DuplicateSpeakableTextCheck,HardcodedText,MissingConstraints,RtlSymmetry,VisualLintButtonSize">
@@ -132,6 +132,45 @@
                 tools:ignore="ContentDescription,HardcodedText" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="61dp"
+            android:layout_marginTop="20dp">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button3"
+                android:onClick="onAttendanceHostelCLick"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/rounded_home_button_background"
+                android:fontFamily="@font/inter_medium"
+                android:gravity="start|center_vertical"
+                android:paddingStart="60dp"
+                android:text="Log out"
+                android:textColor="#000000"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:ignore="DuplicateSpeakableTextCheck,HardcodedText,MissingConstraints,RtlSymmetry,VisualLintButtonSize">
+
+            </androidx.appcompat.widget.AppCompatButton>
+
+            <ImageView
+                android:id="@+id/iconImageView3"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:contentDescription="TODO"
+                android:src="@drawable/logout"
+                app:layout_constraintBottom_toBottomOf="@+id/button3"
+                app:layout_constraintEnd_toEndOf="@+id/button3"
+                app:layout_constraintHorizontal_bias="0.032"
+                app:layout_constraintStart_toStartOf="@+id/button3"
+                app:layout_constraintTop_toTopOf="@+id/button3"
+                app:layout_constraintVertical_bias="0.516"
+                tools:ignore="ContentDescription,HardcodedText" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
      </LinearLayout>
 
